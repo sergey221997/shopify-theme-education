@@ -1,0 +1,32 @@
+<h1>{{ section.settings.heading }}</h1>
+<h2>{{ section.settings.subheading }}</h2>
+<h3>{{ section.settings.text }}</h3>
+
+{% schema %}
+  {
+    "name": "hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }, 
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text"
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "hero"
+      }
+    ]
+  }
+{% endschema %}
