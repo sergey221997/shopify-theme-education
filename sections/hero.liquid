@@ -2,18 +2,24 @@
   {% case block.type %}
     {% when 'heading' %}
       <div>
-        {{ block.settings.heading }}
+        {% render 'hero-snippet', 
+          heading_text: block.settings.heading 
+        %}
       </div>  
     {% when 'subheading' %}
       <div>
-        {{ block.settings.subheading }}
+        {% render 'hero-snippet', 
+          heading_text: block.settings.subheading 
+        %}
       </div>
     {% when 'text' %}
       <div>
-        {{ block.settings.text }}
+        {% render 'hero-snippet', 
+          heading_text: block.settings.text 
+        %}
       </div>
   {% endcase %}
-{% endfor %}
+{% endfor %} 
 
 {% schema %}
   {
