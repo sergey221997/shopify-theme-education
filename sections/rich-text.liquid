@@ -1,0 +1,49 @@
+{% render 'hero', blocks: section.blocks %}
+
+{% schema %}
+    {
+        "name": "Rich-text",
+        "blocks": [
+            {
+                "type": "heading",
+                "name": "Heading",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "text-title",
+                        "label": "Heading",
+                        "default": "Talk about your brand"
+                    }
+                ]
+            },
+            {
+                "type": "subheading",
+                "name": "Subheading",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "subheading",
+                        "label": "Subheading",
+                        "default": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
+                    }
+                ]
+            },
+            {
+                "type": "rich-text",
+                "name": "Rich-text",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "rich-text",
+                        "label": "Rich-text"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Rich-text"
+            }
+        ]
+    }
+{% endschema %}
