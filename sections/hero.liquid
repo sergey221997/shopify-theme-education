@@ -1,29 +1,8 @@
-{% for block in section.blocks %}
-    {% case block.type %}
-        {% when 'heading' %}
-            <div>
-                {% render 'hero-snippet', 
-                heading_text: block.settings.heading 
-                %}
-            </div>  
-        {% when 'subheading' %}
-            <div>
-                {% render 'hero-snippet', 
-                heading_text: block.settings.subheading 
-                %}
-            </div>
-        {% when 'text' %}
-            <div>
-                {% render 'hero-snippet', 
-                heading_text: block.settings.text 
-                %}
-            </div>
-    {% endcase %}
-{% endfor %} 
+{% render 'rich-text', blocks: section.blocks %}
 
 {% schema %}
     {
-        "name": "hero",
+        "name": "Hero",
         "blocks": [
             {
                 "type": "heading",
@@ -31,8 +10,9 @@
                 "settings": [
                 {
                     "type": "text",
-                    "id": "heading",
-                    "label": "Heading"
+                    "id": "text-title",
+                    "label": "Heading",
+                    "default": "Talk about your brand"
                 }
                 ]
             },
@@ -43,25 +23,26 @@
                 {
                     "type": "text",
                     "id": "subheading",
-                    "label": "Subheading"
+                    "label": "Subheading",
+                    "default": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
                 }
                 ]
             },
             {
-                "type": "text",
-                "name": "Text",
+                "type": "rich-text",
+                "name": "Rich-text",
                 "settings": [
                 {
-                    "type": "text",
-                    "id": "text",
-                    "label": "text"
+                    "type": "richtext",
+                    "id": "rich-text",
+                    "label": "Rich-text"
                 }
                 ]
             }
         ],
         "presets": [
             {
-                "name": "hero"
+                "name": "Hero"
             }
         ]
     }
