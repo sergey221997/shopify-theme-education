@@ -1,4 +1,4 @@
-{% render 'hero', blocks: section.blocks %}
+{% render 'hero', blocks: section.blocks, scale-size: section.settings.scale-size %}
 
 {% schema %}
     {
@@ -13,6 +13,16 @@
                         "id": "text-title",
                         "label": "Heading",
                         "default": "Talk about your brand"
+                    },
+                    {
+                        "type": "range",
+                        "id": "scale-size",
+                        "label": "Heading size",
+                        "min": 70,
+                        "default": 100,
+                        "max": 250,
+                        "step": 10,
+                        "unit": "%"
                     }
                 ]
             },

@@ -2,8 +2,8 @@
     {% for block in blocks %}
         {% case block.type %}
             {% when 'heading' %}
-                <h1>
-                    {{ block.settings.text-title  }}
+                <h1 style="font-size: {{ block.settings.scale-size }}%;">
+                    {{ block.settings.text-title }}
                 </h1>
             {% when 'subheading' %}
                 <h5>
