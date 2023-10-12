@@ -1,4 +1,4 @@
-{% render 'hero', blocks: section.blocks, scale-size: section.settings.scale-size %}
+{% render 'hero', blocks: section.blocks %}
 
 {% schema %}
     {
@@ -16,13 +16,13 @@
                     },
                     {
                         "type": "range",
-                        "min": 70,
-                        "max": 250,
+                        "min": 10,
+                        "max": 150,
                         "step": 10,
-                        "unit": "%",
+                        "unit": "px",
                         "id": "scale-size",
                         "label": "Heading size",
-                        "default": 100
+                        "default": 50
                     }
                 ]
             },
