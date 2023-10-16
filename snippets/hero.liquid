@@ -14,8 +14,9 @@
                     {{ block.settings.rich-text }}
                 </p>
             {% when 'buttons' %}
-                    <a href="#">{{ block.settings.button_one_text }}</a>
-                    <a href="#">{{ block.settings.button_two_text }}</a>
+                <h3></h3>
+                    <a href="{{ block.settings.button_one }}">{{ block.settings.button_label1 }}</a>
+                    <a href="{{ block.settings.button_two }}">{{ block.settings.button_label2 }}</a>
         {% endcase %}
     {% endfor %}
 </div>
