@@ -1,3 +1,14 @@
+<style>
+    .btn {
+        font-size: .9rem;
+        color: #fff;
+        background-color: #9C9C9C;
+        padding: .5rem;
+        border-radius: 1rem;
+        text-decoration: none;
+    }
+</style>
+
 <div>
     {% for block in blocks %}
         {% case block.type %}
@@ -15,24 +26,24 @@
                 </p>
             {% when 'buttons' %}
                 {% if block.settings.button_link1 != blank %}
-                    <a class="link" href="{{ block.settings.button_link1 }}">
+                    <a class="btn" href="{{ block.settings.button_link1 }}">
                         {{ block.settings.button_label1 }}
                     </a>
                 {% else %}
                     {% if block.settings.button_label1 != blank %}
-                        <a class="link">
+                        <a class="btn">
                             {{ block.settings.button_label1 }}
                         </a>
                     {% endif %}
                 {% endif %}  
 
                 {% if block.settings.button_link2 != blank %}
-                    <a class="link" href="{{ block.settings.button_link2 }}">
+                    <a class="btn" href="{{ block.settings.button_link2 }}">
                         {{ block.settings.button_label2 }}
                     </a>
                 {% else %}
                 {% if block.settings.button_label2 != blank %}
-                    <a class="link">
+                    <a class="btn">
                         {{ block.settings.button_label2 }}
                     </a>
                 {% endif %}
@@ -40,14 +51,3 @@
         {% endcase %}
     {% endfor %}
 </div>
-
-<style>
-    .link {
-        font-size: .9rem;
-        color: #fff;
-        background-color: #9C9C9C;
-        padding: .5rem;
-        border-radius: 1rem;
-        text-decoration: none;
-    }
-</style>
