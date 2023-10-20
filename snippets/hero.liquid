@@ -15,18 +15,26 @@
                 </p>
             {% when 'buttons' %}
                 {% if block.settings.button_link1 != blank %}
-                    <a class="link" href="{{ block.settings.button_link1 }}">{{ block.settings.button_label1 }}</a>
+                    <a class="link" href="{{ block.settings.button_link1 }}">
+                        {{ block.settings.button_label1 }}
+                    </a>
                 {% else %}
                     {% if block.settings.button_label1 != blank %}
-                    <a class="link">{{ block.settings.button_label1 }}</a>
+                        <a class="link">
+                            {{ block.settings.button_label1 }}
+                        </a>
                     {% endif %}
                 {% endif %}  
 
                 {% if block.settings.button_link2 != blank %}
-                    <a class="link" href="{{ block.settings.button_link2 }}">{{ block.settings.button_label2 }}</a>
+                    <a class="link" href="{{ block.settings.button_link2 }}">
+                        {{ block.settings.button_label2 }}
+                    </a>
                 {% else %}
                 {% if block.settings.button_label2 != blank %}
-                    <a class="link">{{ block.settings.button_label2 }}</a>
+                    <a class="link">
+                        {{ block.settings.button_label2 }}
+                    </a>
                     {% endif %}
                 {% endif %} 
         {% endcase %}
