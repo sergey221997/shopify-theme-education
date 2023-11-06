@@ -1,0 +1,80 @@
+<h2>Упражнение 1</h2>
+<p>1. Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда section.settings.show_content равен true</p>
+<p>2. Показывать хэдинг только когда section.settings.show_heading равен true </p>
+<p>3. Применять цвет текста для хэдинга только когда section.settings.use_color равен true</p>
+<p>4. Показывать "Lorem ipsum" текст только когда section.settings.show_text равен true</p>
+{% comment %}
+    Не радеактировать код выше
+{% endcomment %}
+
+
+{% comment %}
+    Начало контента
+{% endcomment %}
+
+<h3 style="color: {{ section.settings.heading_color }}">{{ section.settings.heading }}</h3>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+{% comment %}
+    Конец контента
+{% endcomment %}
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Exercise 1",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show_content",
+                "default": true,
+                "label": "Show content"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_heading",
+                "default": true,
+                "label": "Show heading"
+            },
+            {
+                "id": "heading",
+                "default": "Lorem ipsum",
+                "type": "text",
+                "label": "Heading"
+            },
+            {
+                "type": "checkbox",
+                "id": "use_color",
+                "default": true,
+                "label": "Use color"
+            },
+            {
+                "type": "color",
+                "id": "heading_color",
+                "label": "Heading color",
+                "default": "#FF0000"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_text",
+                "label": "Show text",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "name": "Exercise 1"
+            }
+        ]
+    }
+{% endschema %}

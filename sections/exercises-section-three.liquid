@@ -1,0 +1,82 @@
+<h2>Упражнение 3</h2>
+<p>Показывать "Идёт дождь" если section.settings.weather равен rain</p>
+<p>Показывать "Идёт снег" если section.settings.weather равен snow</p>
+<p>Показывать "Поднялся ветер" если section.settings.weather равен wind</p>
+<p>Показывать "Погода сегодня прекрасная" если section.settings.weather равен fine</p>
+<p>Иначе показывать "Другое"</p>
+<br>
+<br>
+<br>
+<h3>Прогноз:</h3>
+{% comment %}
+    Не радеактировать код выше
+{% endcomment %}
+
+<p>
+    Идёт дождь
+</p>
+<p>
+    Идёт снег 
+</p>
+<p>
+    Поднялся ветер
+</p>
+<p>
+    Погода сегодня прекрасная
+</p>
+<p>
+    Другое
+</p>
+
+
+{% schema %}
+    {
+        "name": "Exercise 3",
+        "settings": [
+            {
+                "type": "select",
+                "options": [
+                    {
+                        "value": "fine",
+                        "label": "Прекрасно"
+                    },
+                    {
+                        "value": "wind",
+                        "label": "Ветер"
+                    },
+                    {
+                        "value": "snow",
+                        "label": "Снег"
+                    },
+                    {
+                        "value": "fog",
+                        "label": "Туман"
+                    },
+                    {
+                        "value": "rain",
+                        "label": "Дождь"
+                    },
+                    {
+                        "value": "other",
+                        "label": "Другое"
+                    },
+                    {
+                        "value": "dust",
+                        "label": "Пыльно"
+                    },
+                    {
+                        "value": "shopify",
+                        "label": "Шопифай"
+                    }
+                ],
+                "id": "weather",
+                "label": "Weather"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Exercise 3"
+            }
+        ]
+    }
+{% endschema %}

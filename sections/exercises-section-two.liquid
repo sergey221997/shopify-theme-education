@@ -1,0 +1,58 @@
+<h2>Упражнение 3</h2>
+<p>1. Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда section.settings.show_content равен true, в проотивном случае показывать альтернативный контент</p>
+<p>2. Если section.settings.use_red_color равен true сделать цвет фона body красным. Желтый по умолчанию.</p>
+{% comment %}
+    Не радеактировать код выше
+{% endcomment %}
+
+
+{% comment %}
+    Начало контента
+{% endcomment %}
+
+<h3>{{ section.settings.heading }}</h3>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+{% comment %}
+    Конец контента
+{% endcomment %}
+
+
+{% comment %}
+    Начало альтернативного контента
+{% endcomment %}
+    <p>Альтернативный контент</p>
+{% comment %}
+    Конец альтернативного контента
+{% endcomment %}
+
+{% schema %}
+    {
+        "name": "Exercise 2",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show_content",
+                "default": true,
+                "label": "Show content"
+            },
+            {
+                "type": "checkbox",
+                "id": "use_red_color",
+                "default": true,
+                "label": "Set red background"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Exercise 2"
+            }
+        ]
+    }
+{% endschema %}
