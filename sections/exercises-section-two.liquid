@@ -1,6 +1,5 @@
 <style>
     body {
-        text-align: center;
         background-color: yellow; 
     }
 </style> 
@@ -14,8 +13,17 @@
 {% endif %}
 
 <h2>Упражнение 2</h2>
-<p>1. Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда section.settings.show_content равен true, в проотивном случае показывать альтернативный контент</p>
-<p>2. Если section.settings.use_red_color равен true сделать цвет фона body красным. Желтый по умолчанию.</p>
+<h5>Раунд 1</h5>
+<ol>
+    <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true, в проотивном случае показывать альтернативный контент</li>
+    <li>Если <code>section.settings.use_red_color</code> равен true сделать цвет фона body красным. Желтый по умолчанию.</li>
+</ol>
+<h5>Раунд 2</h5>
+<ol>
+    <li>Избавиться от явной проверки на true</li>
+    <li>Использовать css переменные для стилизации body</li>
+    <li>DRY (Don't repeat yourself)</li>
+</ol>
 {% comment %}
     Не редактировать код выше
 {% endcomment %}

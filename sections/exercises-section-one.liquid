@@ -1,9 +1,23 @@
 <h2>Упражнение 1</h2>
-<p>1. Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда section.settings.show_content равен true</p>
-<p>2. Показывать хэдинг только когда section.settings.show_heading равен true </p>
-<p>3. Применять цвет текста для хэдинга только когда section.settings.use_color равен true</p>
-<p>4. Показывать "Lorem ipsum" текст только когда section.settings.show_text равен true</p>
-<p>Если section.settings.heading пустой, сделать "Lorem ipsum" текст жирным, иначе курсив</p>
+<h5>Раунд 1</h5>
+<ol>
+    <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true</li>
+    <li>Показывать хэдинг только когда <code>section.settings.show_heading</code> равен true </li>
+    <li>Применять цвет текста для хэдинга только когда <code>section.settings.use_color</code> равен true</li>
+    <li>Показывать "Lorem ipsum" текст только когда <code>section.settings.show_text</code> равен true</li>
+    <li>Если <code>section.settings.heading</code> пустой, сделать "Lorem ipsum" текст жирным, иначе курсив</li>
+</ol>
+<h5>Раунд 2</h5>
+<ol>
+    <li>Во всех секциях визуально отделить условия задачи от контента</li>
+    <li>
+        Избавиться от явной проверки на true и объяснить почему в этом случае она лишняя - 
+        <code>(if section.settings.show_content == true)</code>
+    </li>
+    <li>Избавиться от переназначения шрифта у параграфа</li>
+    <li>Добавить зеленый цвет для параграфа</li>
+    <li>DRY (Don't repeat yourself)</li>
+</ol>
 {% comment %}
     Не редактировать код выше
 {% endcomment %}
