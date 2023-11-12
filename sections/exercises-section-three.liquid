@@ -19,21 +19,61 @@
     Не редактировать код выше
 {% endcomment %}
 
-<p>
-    Идёт дождь
-</p>
-<p>
-    Идёт снег 
-</p>
-<p>
-    Поднялся ветер
-</p>
-<p>
-    Погода сегодня прекрасная
-</p>
-<p>
-    Другое
-</p>
+{% if section.settings.weather == 'rain' %}
+    <p style="color: blue;">
+        Идёт дождь
+    </p>
+{% elsif section.settings.weather == 'snow' %}
+        <p style="color: white;">
+            Идёт снег
+        </p>  
+    <style>
+        body  {
+            background-color: black;
+        }
+    </style>
+{% elsif section.settings.weather == 'wind' %}
+    <p style="color: gray;">
+        Поднялся ветер 
+    </p>
+    <style>
+        body {
+            background-color: blue;
+        }
+    </style>
+{% elsif section.settings.weather == 'fine' %}
+    <p>
+        Погода сегодня прекрасная
+    </p>
+    <style>
+        body {
+            background-color: green;
+        }
+    </style>
+{% elsif section.settings.weather == 'fog' %}
+    <p style="color: green;">
+        Туман
+    </p>
+    <style>
+        body {
+            background-color: chocolate;
+        }
+    </style>
+
+{% elsif section.settings.weather == 'dust' %}
+    <p style="color: red;">
+        Пыльно
+    </p>
+    <style>
+        body {
+            background-color: yellow;
+        }
+    </style>
+{% else %}
+    <p style="font-weight: bold; color: red;">
+        Другое
+    </p>                  
+{% endif %}
 
 
 {% schema %}
@@ -70,10 +110,6 @@
                     {
                         "value": "dust",
                         "label": "Пыльно"
-                    },
-                    {
-                        "value": "shopify",
-                        "label": "Шопифай"
                     }
                 ],
                 "id": "weather",
