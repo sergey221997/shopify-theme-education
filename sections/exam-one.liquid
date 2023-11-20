@@ -1,0 +1,81 @@
+<h2>Закрепление if statements</h2>
+<h5>Каждое условие должно быть описано одним выражением (if statement)</h5>
+<ol>
+    <li>Показывать только когда есть some_text и show_text включен</li>
+    <li>Показывать ДА когда Number 1 больше Number 2 и Number 1 не меньше 3 иначе НЕТ</li>
+    <li>Показывать ДА когда Number 1 больше 6 или меньше 3 иначе НЕТ</li>
+    <li>Показывать ДА когда Number 2 меньше 9 и Number 1 больше 3 но меньше 8 иначе НЕТ</li>
+    <li>Показывать наибольшее число из Number 1, Number 2 и Number 3</li>
+    
+</ol>
+
+<ol>
+    <li>
+        <p>{{ text }}</p>
+    </li>
+    <li>
+        <p>ДА/НЕТ</p>
+    </li>
+    <li>
+        <p>ДА/НЕТ</p>
+    </li>
+    <li>
+        <p>ДА/НЕТ</p>
+    </li>
+    <li>
+        <p>Наибольшее число:</p>
+    </li>
+</ol>
+
+
+{% schema %}
+    {
+        "name": "Knowlege check",
+        "settings": [
+            {
+                "type": "text",
+                "id": "some_text",
+                "label": "Text",
+                "default": "Lorem ipsum"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_text",
+                "label": "Show text",
+                "default": true
+            },
+            {
+                "type": "range",
+                "id": "number_one",
+                "label": "Number 1",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "number_two",
+                "label": "Number 2",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "number_three",
+                "label": "Number 3",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            }
+        ],
+        "presets": [
+            {
+                "name": "Knowlege check"
+            }
+        ]
+    }
+{% endschema %}
