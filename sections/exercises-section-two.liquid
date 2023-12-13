@@ -1,64 +1,19 @@
-<style>
-    body {
-        background-color: yellow; 
-    }
-</style> 
+{{ 'exercises_two.css' | asset_url | stylesheet_tag }}
 
-{% if section.settings.use_red_color == true %}
-    <style>
-        body {
-            background-color: red;
-        }
-    </style>
-{% endif %}
-
-<h2>Упражнение 2</h2>
-<h5>Раунд 1</h5>
-<ol>
-    <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true, в проотивном случае показывать альтернативный контент</li>
-    <li>Если <code>section.settings.use_red_color</code> равен true сделать цвет фона body красным. Желтый по умолчанию.</li>
-</ol>
-<h5>Раунд 2</h5>
-<ol>
-    <li>Избавиться от явной проверки на true</li>
-    <li>Использовать css переменные для стилизации body</li>
-    <li>DRY (Don't repeat yourself)</li>
-</ol>
-{% comment %}
-    Не редактировать код выше
-{% endcomment %}
-
-{% comment %}
-    Начало контента
-{% endcomment %}
-
-{% if section.settings.show_content == true %} {%  comment  %}если show_content равен true мы показываем хеадинг и текс в потивном случае показываем только альтернативный текст{% endcomment %}    
-
+<div class="wrapper" style="{% if section.settings.use_red_color %} --color-bg: red; {% endif %}">
+    {% render 'exercise_2' %}
+    {% if section.settings.show_content %} 
     <h3>{{ section.settings.heading }}</h3>
-
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-{% else %}
-        <p>Альтернативный контент</p>
-{% endif %}
-
-{% comment %}
-    Конец контента
-{% endcomment %}
-
-
-{% comment %}
-    Начало альтернативного контента
-{% endcomment %}
-    {% comment %} <p>Альтернативный контент</p> {% endcomment %}
-{% comment %}
-    Конец альтернативного контента
-{% endcomment %} 
-
+    {% else %}
+    <p>Альтернативный контент</p>
+    {% endif %}
+</div>
 {% schema %}
     {
         "name": "Exercise 2",

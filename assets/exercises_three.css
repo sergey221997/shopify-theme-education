@@ -1,0 +1,22 @@
+.wrapper {
+    --color-bg: inherit;    
+    height: 100vh;
+    background-color: var(--color-bg);
+}
+
+.content {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+p {
+    --color-text: inherit;
+    color: var(--color-text);
+    font-weight: var(--font-weight, normal);
+}
+
+h3 {
+    --color-text: inherit;
+    color: var(--color-red);
+}

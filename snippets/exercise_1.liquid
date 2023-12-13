@@ -1,0 +1,58 @@
+ {{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+
+<div class="tabs">
+    <div class="tabs-header">
+        <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
+        <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
+        <label class="tabs-header-label" id="label3" for="tab3">Раунд 3</label>
+        <label class="tabs-header-label" id="label4" for="tab4">Раунд 4</label>
+    </div>
+
+    <div class="tabs-inner">
+        <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
+        <div class="tabs-content">
+            <h5>Раунд 1</h5>
+            <ol>
+                <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true</li>
+                <li>Показывать хэдинг только когда <code>section.settings.show_heading</code> равен true </li>
+                <li>Применять цвет текста для хэдинга только когда <code>section.settings.use_color</code> равен true</li>
+                <li>Показывать "Lorem ipsum" текст только когда <code>section.settings.show_text</code> равен true</li>
+                <li>Если <code>section.settings.heading</code> пустой, сделать "Lorem ipsum" текст жирным, иначе курсив</li>
+            </ol>
+        </div>
+
+        <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
+        <div class="tabs-content">
+            <h5>Раунд 2</h5>
+            <ol>
+                <li>Во всех секциях визуально отделить условия задачи от контента</li>
+                <li>Во всех секциях где это необходимо использовать liquid переменные (assign)</li>
+                <li>
+                    Избавиться от явной проверки на true и объяснить почему в этом случае она лишняя - 
+                    <code>(if section.settings.show_content == true)</code>
+                </li>
+                <li>Избавиться от переназначения шрифта у параграфа</li>
+                <li>Добавить зеленый цвет для параграфа</li>
+                <li>DRY (Don't repeat yourself)</li>
+            </ol>
+        </div>
+
+        <input class="tabs-input" id="tab3" type="checkbox" name="tabs">
+        <div class="tabs-content">
+            <h5>Раунд 3</h5>
+            <ol>
+                <li>В теге p пропы которые используются в атрибкуте style вынести в переменные</li>
+                <li>Убрать фрагмент section.settings.show_content,логика должна остаться</li>
+            </ol>
+        </div>
+
+        <input class="tabs-input" id="tab4" type="checkbox" name="tabs">
+        <div class="tabs-content">
+            <h5>Раунд 4</h5>
+            <ol>
+                <li>В теге p вынести пропы в переменные</li>
+                <li>Убераю обертку show_content (логика должна остаться)</li>
+            </ol>
+        </div>
+    </div>
+</div> 
