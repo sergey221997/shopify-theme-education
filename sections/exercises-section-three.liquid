@@ -1,97 +1,46 @@
-<h2>Упражнение 3</h2>
-<h5>Раунд 1</h5>
-<ol>
-    <li>
-        <ol>
-            <li>Показывать "Идёт дождь" если section.settings.weather равен rain</li>
-            <li>Показывать "Идёт снег" если section.settings.weather равен snow</li>
-            <li>Показывать "Поднялся ветер" если section.settings.weather равен wind</li>
-            <li>Показывать "Погода сегодня прекрасная" если section.settings.weather равен fine</li>
-            <li>Иначе показывать "Другое"</li>
-        </ol>
-    </li>
-    <br>
-    <li>
-        <ol>
-            <li>Сделать текст "Идёт дождь" синим, а фон белым</li>
-            <li>Сделать текст "Идёт снег" белым, а фон чёрным</li>
-            <li>Сделать текст "Поднялся ветер" серым, а фон синим</li>
-            <li>Сделать текст "Погода сегодня прекрасная" чёрным, а фон зёленым</li>
-            <li>Сделать текст "Другое" жирным, красным</li>
-        </ol>
-    </li>
-</ol>
-<h5>Раунд 2</h5>
-<ol>
-    <li>Провести рефакторинг проверки условий с использованием case</li>
-    <li>Использовать css переменные для стилизации</li>
-    <li>DRY (Don't repeat yourself)</li>
-</ol>
-<br>
-<br>
-<br>
-<h3>Прогноз:</h3>
-{% comment %}
-    Не редактировать код выше
-{% endcomment %}
+{{ 'exercises_three.css' | asset_url | stylesheet_tag }}
 
-{% if section.settings.weather == 'rain' %}
-    <p style="color: blue;">
-        Идёт дождь
-    </p>
-{% elsif section.settings.weather == 'snow' %}
-        <p style="color: white;">
-            Идёт снег
-        </p>  
-    <style>
-        body  {
-            background-color: black;
-        }
-    </style>
-{% elsif section.settings.weather == 'wind' %}
-    <p style="color: gray;">
-        Поднялся ветер 
-    </p>
-    <style>
-        body {
-            background-color: blue;
-        }
-    </style>
-{% elsif section.settings.weather == 'fine' %}
-    <p>
-        Погода сегодня прекрасная
-    </p>
-    <style>
-        body {
-            background-color: green;
-        }
-    </style>
-{% elsif section.settings.weather == 'fog' %}
-    <p style="color: green;">
-        Туман
-    </p>
-    <style>
-        body {
-            background-color: chocolate;
-        }
-    </style>
+{% liquid
+    case section.settings.weather
+        when 'rain'
+            assign text_content = 'Идёт дождь'
+            assign color_text = 'blue'
+        when 'snow'
+            assign text_content = 'Идёт снег'
+            assign color_text = 'white'
+            assign color_bg = 'black'
+            assign color_title = 'red'
+        when 'wind'
+            assign text_content = 'Поднялся ветер'
+            assign color_text = 'gray'
+            assign color_bg = 'blue'
+        when 'fine'
+            assign text_content = 'Погода сегодня прекрасная'
+            assign color_bg = 'green'
+        else
+            assign text_content = 'Другое'
+            assign color_text = 'red'
+            assign font_weight = 'bold'
+    endcase
+%}
 
-{% elsif section.settings.weather == 'dust' %}
-    <p style="color: red;">
-        Пыльно
-    </p>
-    <style>
-        body {
-            background-color: yellow;
-        }
-    </style>
-{% else %}
-    <p style="font-weight: bold; color: red;">
-        Другое
-    </p>                  
-{% endif %}
-
-
+<div class="wrapper"{% if color_bg %}style="--color-bg: {{ color_bg }};"{% endif %}>
+    {% render 'exercise_3' %}
+    <div class="metcast">
+        <h3 class="metcast-title"
+            {% if color_title %}style="--color-title: {{ color_title }};"{% endif %}>
+            Прогноз:
+        </h3> 
+        <p class="metcast-value"
+            {% if color_text or font_weight %}
+                style="{% if color_text %}--color-text: {{ color_text }};{% endif %}
+                {% if font_weight %}--font-weight: {{ font_weight }};{% endif %}"
+            {% endif %}>
+            {{ text_content }}
+        </p>
+    </div>
+</div>
+    
 {% schema %}
     {
         "name": "Exercise 3",
@@ -112,20 +61,12 @@
                         "label": "Снег"
                     },
                     {
-                        "value": "fog",
-                        "label": "Туман"
-                    },
-                    {
                         "value": "rain",
                         "label": "Дождь"
                     },
                     {
                         "value": "other",
                         "label": "Другое"
-                    },
-                    {
-                        "value": "dust",
-                        "label": "Пыльно"
                     }
                 ],
                 "id": "weather",

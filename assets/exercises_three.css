@@ -1,0 +1,19 @@
+.wrapper {
+    height: 100vh;
+    background-color: var(--color-bg, white);
+}
+
+.metcast {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.metcast-value {
+    color: var(--color-text, black);
+    font-weight: var(--font-weight, normal);
+}
+
+.metcast-title {
+    color: var(--color-title, black);
+}

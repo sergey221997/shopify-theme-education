@@ -1,32 +1,131 @@
-<h2>Закрепление if statements</h2>
-<h5>Каждое условие должно быть описано одним выражением (if statement)</h5>
-<ol>
-    <li>Показывать только когда есть some_text и show_text включен</li>
-    <li>Показывать ДА когда Number 1 больше Number 2 и Number 1 не меньше 3 иначе НЕТ</li>
-    <li>Показывать ДА когда Number 1 больше 6 или меньше 3 иначе НЕТ</li>
-    <li>Показывать ДА когда Number 2 меньше 9 и Number 1 больше 3 но меньше 8 иначе НЕТ</li>
-    <li>Показывать наибольшее число из Number 1, Number 2 и Number 3</li>
+<style>
+    :root {
+        --font-family: sans-serif;
+        --color-hero: #2F73B6;
+        --color-secondary: #e8f3ff;
+        --color-hover: #255c92;
+        --color-shadow: #777;
+        --box-shadow: 0 10px 6px -6px var(--color-shadow);
+    }
+</style>
+{% comment %} css переменные {% endcomment %}
+
+<style>
+    body {
+        font-family: var(--font-family);
+        /* position: relative; */
+    }
+
+    ol {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    /* визуальное отделение задания */
+
+    .tabs{
+        position: absolute;
+        right: 0;
+    }
+
+    .tabs-header {
+        display: flex;
+        margin-bottom: .5rem;
+        justify-content: right;
+    } 
+
+    .tabs-header-label {
+        font-size: .9rem;
+        padding: .6rem;
+        color: var(--color-secondary);
+        background-color: var(--color-hero);
+    }
     
-</ol>
+    .tabs-header-label:hover {
+        cursor: pointer;
+        background-color: var(--color-hover);
+    }
+
+    .tabs-inner {
+        display: flex;
+        justify-content: right;
+    }
+
+    .tabs-content, .tabs-input {
+        display: none;
+    }
+
+    .tabs-input:checked + .tabs-content {
+        display: block;
+        font-size: .9rem;
+        width: 50%;
+        padding: .7rem;
+        border: 1px solid var(--color-hero);
+        background: var(--color-secondary);
+        border-left: 1rem solid var(--color-hero);
+        box-shadow: var(--box-shadow);
+    }
+
+    /* визуальное отделение задания */
+</style>
+{% comment %} css стили отделение заданий от контента {% endcomment %}
+
+<div class="tabs">
+    <div class="tabs-header">
+        <label class="tabs-header-label" id="label1" for="tab1">Упражнение 1</label>
+    </div>
+
+    <div class="tabs-inner">
+        <input class="tabs-input" id="tab1" type="checkbox" name="tabs" checked>
+        <div class="tabs-content">
+            <h3>Закрепление if statements</h3>
+            <h5>Каждое условие должно быть описано одним выражением (if statement)</h5>
+            <ol>
+                <li>Показывать только когда есть some_text и show_text включен</li>
+                <li>Показывать ДА когда Number 1 больше Number 2 и Number 1 не меньше 3 иначе НЕТ</li>
+                <li>Показывать ДА когда Number 1 больше 6 или меньше 3 иначе НЕТ</li>
+                <li>Показывать ДА когда Number 2 меньше 9 и Number 1 больше 3 но меньше 8 иначе НЕТ</li>
+                <li>Показывать наибольшее число из Number 1, Number 2 и Number 3</li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% comment %} html структура заданий {% endcomment %}
 
 <ol>
     <li>
-        <p>{{ text }}</p>
+        {% if section.settings.number_one > section.settings.number_two and section.settings.number_one >= 3  %}
+            ДА
+        {% else %}
+            Нет
+        {% endif %}
     </li>
-    <li>
-        <p>ДА/НЕТ</p>
-    </li>
-    <li>
-        <p>ДА/НЕТ</p>
-    </li>
-    <li>
-        <p>ДА/НЕТ</p>
-    </li>
-    <li>
-        <p>Наибольшее число:</p>
-    </li>
-</ol>
 
+    <li>
+        {% if section.settings.number_one > 6 or section.settings.number_one < 3 %}
+            Да
+        {% else %}
+            Нет
+        {% endif %} 
+    </li>
+
+    <li>
+        {% if section.settings.number_two < 9 and section.settings.number_one > 3 and section.settings.number_one < 8 %}
+            Да
+        {% else %}
+            Нет   
+        {% endif %} 
+    </li>
+
+    {% assign max_number = section.settings.number_one %}
+    {% if section.settings.number_two > max_number %}
+        {% assign max_number = section.settings.number_two %}
+    {% elsif section.settings.number_three > max_number %}
+        {% assign max_number = section.settings.number_three%}     
+    {% endif %}
+
+    <li>Наибольшее значение: {{ max_number }}</li>   
+</ol>
 
 {% schema %}
     {
