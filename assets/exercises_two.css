@@ -1,5 +1,4 @@
 .wrapper {
     height: 100vh;
-    --color-bg: yellow;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg, #ffff00);
 }

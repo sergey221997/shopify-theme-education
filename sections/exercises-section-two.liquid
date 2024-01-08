@@ -1,17 +1,17 @@
 {{ 'exercises_two.css' | asset_url | stylesheet_tag }}
 
-<div class="wrapper" style="{% if section.settings.use_red_color %} --color-bg: red; {% endif %}">
+<div class="wrapper" {% if section.settings.use_red_color %}style="--color-bg: red;"{% endif %}>
     {% render 'exercise_2' %}
     {% if section.settings.show_content %} 
-    <h3>{{ section.settings.heading }}</h3>
-    <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+        <h3 class="heading">{{ section.settings.heading }}</h3>
+        <p class="text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
     {% else %}
-    <p>Альтернативный контент</p>
+        <p class="alternative-text">Альтернативный контент</p>
     {% endif %}
 </div>
 {% schema %}

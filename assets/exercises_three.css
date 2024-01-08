@@ -1,22 +1,19 @@
 .wrapper {
-    --color-bg: inherit;    
     height: 100vh;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg, white);
 }
 
-.content {
+.metcast {
     display: flex;
     gap: .5rem;
     align-items: center;
 }
 
-p {
-    --color-text: inherit;
-    color: var(--color-text);
+.metcast-value {
+    color: var(--color-text, black);
     font-weight: var(--font-weight, normal);
 }
 
-h3 {
-    --color-text: inherit;
-    color: var(--color-red);
+.metcast-title {
+    color: var(--color-title, black);
 }

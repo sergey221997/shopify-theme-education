@@ -1,28 +1,23 @@
 .content {
-    width: 50%;
     font-size: var(--font-size);
-    font-weight: var(--font-weight,normal);
+    font-weight: var(--font-weight, normal);
     font-style: var(--font-style, normal);
     background-color: green;
     width: var(--width);
 } 
 
-.content-alignment {
-    --align-content: left;
-    width: 100%;
+.content-inner {
+    text-align: var(--align-content);
 } 
 
-.text-align {
-    text-align: var(--align-content);
+.text-heading {  
+    text-decoration: var(--text-decoration, inherit);
 }
 
-h3 {
-    text-decoration: var(--text-decoration,inherit);
-}
-
-form {
+.block-size {
     width: 200px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background-color: red;
 }

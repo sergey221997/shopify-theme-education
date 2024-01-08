@@ -1,28 +1,30 @@
 {{ 'exercises_four.css' | asset_url | stylesheet_tag }}
 {% render 'exercise_4', blocks: section.blocks %}
 
-{% assign text-align = section.settings.content_alignment %}
-{% assign font_size = section.settings.font_size %}
-{% assign width = section.settings.section_width %}
+{% capture subheading_content %}
+    <p class="text-subheading">{{ section.settings.subheading_text }}</p>
+{% endcapture %}
 
-<div class="content" style="
-{% if section.settings.use_bold_font %} --font-weight: bold;{% endif %}
-    {% if section.settings.use_italic_font %} --font-style: italic;{% endif %}
-        --font-size: {{ font_size }}px;
-        --width: {{ width }}%;">
-    
-    <div class="content-alignment" style="--align-content: {{text-align}};" >   
+<div 
+    class="content" 
+    style="
+    {% if section.settings.use_bold_font %}--font-weight: bold;{% endif %}
+    {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
+    {% if section.settings.use_underline %}--text-decoration: underline;{% endif %}
+    --font-size: {{ section.settings.font_size }}px;
+    --width: {{ section.settings.section_width }}%;
+    --align-content: {{ section.settings.content_alignment }};"
+>
+    <div class="content-inner">   
         {% if section.settings.subheading_position == 'top' %}
-            <p class="text-align">{{ section.settings.subheading_text }}</p>
-        {% endif %}
-        
-    <h3 class="text-align" style="{% if section.settings.use_underline %} --text-decoration: underline; {% endif %}">{{ section.settings.heading_text }}</h3>
-        
+            {{ subheading_content }}
+        {% endif %}  
+            <h3 class="text-heading">{{ section.settings.heading_text }}</h3>
         {% if section.settings.subheading_position == 'bottom' %}
-            <p class="text-align">{{ section.settings.subheading_text }}</p>
+            {{ subheading_content }}
         {% endif %}
-        {% if section.settings.text_area != empty or section.settings.email_address != empty %}            
-            {% render 'contact-form', blocks: section.blocks %}
+        {% if section.blocks != empty %}
+            {% render 'block-size', blocks: section.blocks %}
         {% endif %}
     </div>
 </div> 

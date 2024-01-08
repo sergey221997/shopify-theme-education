@@ -1,32 +1,43 @@
 {{ 'exercises_three.css' | asset_url | stylesheet_tag }}
 
-{% case section.settings.weather %}
-    {% when 'rain' %}
-        {% assign text_content = 'Идёт дождь' %}
-        {% assign color_text = 'blue' %}
-    {% when 'snow' %}
-        {% assign text_content = 'Идёт снег' %}
-        {% assign color_text = 'white' %}
-        {% assign color_bg = 'black' %}
-        {% assign color_title = 'red' %}
-    {% when 'wind' %}
-        {% assign text_content = 'Поднялся ветер' %}
-        {% assign color_text = 'gray' %}
-        {% assign color_bg = 'blue' %}
-    {% when 'fine' %}
-        {% assign text_content = 'Погода сегодня прекрасная' %}
-        {% assign color_bg = 'green' %}
-    {% else %}
-        {% assign text_content = 'Другое' %}
-        {% assign color_text = 'red' %}
-        {% assign font_weight = 'bold' %}
-{% endcase %}
+{% liquid
+    case section.settings.weather
+        when 'rain'
+            assign text_content = 'Идёт дождь'
+            assign color_text = 'blue'
+        when 'snow'
+            assign text_content = 'Идёт снег'
+            assign color_text = 'white'
+            assign color_bg = 'black'
+            assign color_title = 'red'
+        when 'wind'
+            assign text_content = 'Поднялся ветер'
+            assign color_text = 'gray'
+            assign color_bg = 'blue'
+        when 'fine'
+            assign text_content = 'Погода сегодня прекрасная'
+            assign color_bg = 'green'
+        else
+            assign text_content = 'Другое'
+            assign color_text = 'red'
+            assign font_weight = 'bold'
+    endcase
+%}
 
-<div class="wrapper" style="--color-bg: {{ color_bg }};">
+<div class="wrapper"{% if color_bg %}style="--color-bg: {{ color_bg }};"{% endif %}>
     {% render 'exercise_3' %}
-    <div class="content">
-        <h3 style="--color-red:{{ color_title }};">Прогноз:</h3> 
-        <p style="--color-text: {{ color_text }}; --font-weight: {{ font_weight }};" >{{ text_content }}</p>
+    <div class="metcast">
+        <h3 class="metcast-title"
+            {% if color_title %}style="--color-title: {{ color_title }};"{% endif %}>
+            Прогноз:
+        </h3> 
+        <p class="metcast-value"
+            {% if color_text or font_weight %}
+                style="{% if color_text %}--color-text: {{ color_text }};{% endif %}
+                {% if font_weight %}--font-weight: {{ font_weight }};{% endif %}"
+            {% endif %}>
+            {{ text_content }}
+        </p>
     </div>
 </div>
     

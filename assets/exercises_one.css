@@ -1,8 +1,13 @@
-p {
+.text {
     font-weight: var(--font-weight, normal);
     font-style: var(--font-style, inherit);
 }
 
-h3 {
+.heading {
     color: var(--heading-color, #FF0000);
+}
+
+.content {
+    background-color: green;
+    min-height: 300px;
 }
