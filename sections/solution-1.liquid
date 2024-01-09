@@ -1,7 +1,7 @@
-{{ 'exercises_one.css' | asset_url | stylesheet_tag }}
+{{ 'exercises-1.css' | asset_url | stylesheet_tag }}
 {% assign heading_color = section.settings.heading_color %}
 
-    {% render 'exercise_1' %}
+    {% render 'exercise-1' %}
     {% if section.settings.show_heading or section.settings.show_text %}
         <div class="content">
             {% if section.settings.show_heading %}

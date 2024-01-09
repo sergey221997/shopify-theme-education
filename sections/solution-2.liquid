@@ -1,7 +1,7 @@
-{{ 'exercises_two.css' | asset_url | stylesheet_tag }}
+{{ 'exercises-2.css' | asset_url | stylesheet_tag }}
 
 <div class="wrapper" {% if section.settings.use_red_color %}style="--color-bg: red;"{% endif %}>
-    {% render 'exercise_2' %}
+    {% render 'exercise-2' %}
     {% if section.settings.show_content %} 
         <h3 class="heading">{{ section.settings.heading }}</h3>
         <p class="text">

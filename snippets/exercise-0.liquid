@@ -1,0 +1,22 @@
+{{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+
+<div class="tabs">
+    <div class="tabs-header">
+        <label class="tabs-header-label" id="label1" for="tab1">Упражнение 1</label>
+    </div>
+
+    <div class="tabs-inner">
+        <input class="tabs-input" id="tab1" type="checkbox" name="tabs" checked>
+        <div class="tabs-content">
+            <h3>Закрепление if statements</h3>
+            <h5>Каждое условие должно быть описано одним выражением (if statement)</h5>
+            <ol>
+                <li>Показывать только когда есть some_text и show_text включен</li>
+                <li>Показывать ДА когда Number 1 больше Number 2 и Number 1 не меньше 3 иначе НЕТ</li>
+                <li>Показывать ДА когда Number 1 больше 6 или меньше 3 иначе НЕТ</li>
+                <li>Показывать ДА когда Number 2 меньше 9 и Number 1 больше 3 но меньше 8 иначе НЕТ</li>
+                <li>Показывать наибольшее число из Number 1, Number 2 и Number 3</li>
+            </ol>
+        </div>
+    </div>
+</div>

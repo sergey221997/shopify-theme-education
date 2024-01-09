@@ -1,4 +1,4 @@
-{{ 'exercises_three.css' | asset_url | stylesheet_tag }}
+{{ 'exercises-3.css' | asset_url | stylesheet_tag }}
 
 {% liquid
     case section.settings.weather
@@ -25,7 +25,7 @@
 %}
 
 <div class="wrapper"{% if color_bg %}style="--color-bg: {{ color_bg }};"{% endif %}>
-    {% render 'exercise_3' %}
+    {% render 'exercise-3' %}
     <div class="metcast">
         <h3 class="metcast-title"
             {% if color_title %}style="--color-title: {{ color_title }};"{% endif %}>

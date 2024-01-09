@@ -1,0 +1,88 @@
+{% render 'exercise-0' %}
+
+<ol>
+    <li>
+        {% if section.settings.number_one > section.settings.number_two and section.settings.number_one >= 3  %}
+            ДА
+        {% else %}
+            Нет
+        {% endif %}
+    </li>
+
+    <li>
+        {% if section.settings.number_one > 6 or section.settings.number_one < 3 %}
+            Да
+        {% else %}
+            Нет
+        {% endif %} 
+    </li>
+
+    <li>
+        {% if section.settings.number_two < 9 and section.settings.number_one > 3 and section.settings.number_one < 8 %}
+            Да
+        {% else %}
+            Нет   
+        {% endif %} 
+    </li>
+
+    {% assign max_number = section.settings.number_one %}
+    {% if section.settings.number_two > max_number %}
+        {% assign max_number = section.settings.number_two %}
+    {% elsif section.settings.number_three > max_number %}
+        {% assign max_number = section.settings.number_three%}     
+    {% endif %}
+
+    <li>Наибольшее значение: {{ max_number }}</li>   
+</ol>
+
+{% schema %}
+    {
+        "name": "Exercise 0",
+        "settings": [
+            {
+                "type": "text",
+                "id": "some_text",
+                "label": "Text",
+                "default": "Lorem ipsum"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_text",
+                "label": "Show text",
+                "default": true
+            },
+            {
+                "type": "range",
+                "id": "number_one",
+                "label": "Number 1",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "number_two",
+                "label": "Number 2",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "number_three",
+                "label": "Number 3",
+                "min": 0,
+                "max": 9,
+                "step": 1,
+                "default": 0
+            }
+        ],
+        "presets": [
+            {
+                "name": "Exercise 0"
+            }
+        ]
+    }
+{% endschema %}
