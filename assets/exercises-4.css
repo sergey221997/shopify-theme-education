@@ -14,7 +14,7 @@
     text-decoration: var(--text-decoration, inherit);
 }
 
-.block-size {
+.contact-form {
     width: 200px;
     display: flex;
     flex-direction: column;
