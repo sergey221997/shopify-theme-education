@@ -1,13 +1,31 @@
-<form class="contact-form" action="#">
+{% liquid
+    assign NS = 'contact-form'
+%}
+
+{% capture test %}
     {% for block in blocks %}
         {% case block.type %}
-            {% when 'email' %}
-                <label class="contact-form-label" for="user-email-{{ block.id }}">{{ block.settings.email_label }}</label>
-                <input class="contact-form-input" name="email" type="email" placeholder="Email" id="user-email-{{ block.id }}">           
-            {% when 'text' %}
-                <label class="contact-form-label" for="user-textarea-{{ block.id }}">{{ block.settings.message_label }}</label>
-                <textarea class="contact-form-input" name="textarea" rows="5" placeholder="Message" id="user-textarea-{{ block.id }}"></textarea>      
+        {% when 'email' %}
+            <label class="{{ NS }}-label" for="user-email-{{ block.id }}">{{ block.settings.email_label }}</label>
+            <input class="{{ NS }}-input" name="email" type="email" placeholder="Email" id="user-email-{{ block.id }}">
+        {% when 'text' %}
+            <label class="{{ NS }}-label" for="user-textarea-{{ block.id }}">{{ block.settings.message_label }}</label>
+            <textarea class="{{ NS }}-input" name="textarea" rows="5" placeholder="Message" id="user-textarea-{{ block.id }}"></textarea>
         {% endcase %}
-    {% endfor %}  
-    <button class="contact-form-button" type="submit">Submit</button>  
-</form>   
+    {% endfor %}
+{% endcapture %}
+  
+{% if test != blank %}            
+    <form class="{{ NS }}" action="#">
+        {{ test }}
+        <button class="{{ NS }}-button" type="submit">Submit</button>  
+    </form>
+{% endif %}
+
+
+
+
+
+
+
+

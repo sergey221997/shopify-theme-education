@@ -1,15 +1,4 @@
-<h2>Упражнение 6 (Capture, snippets)</h2>
-
-<h5>Создать и использовать сниппет для условий задач</h5>
-
-<ol>
-    <li>Все условия задач вынести в собственные сниппеты с соответствующими названиеми.(Конвенция: <code>exercise-{number}.liquid</code>)</li>
-    <li>Секции переименовать. (Конвенция: <code>solution-{number}.liquid</code>)</li>
-    <li>Каждый снипет вызывает внутри себя универсальный сниппет <code>exercise-wrapper.liquid</code>, в который передаются пропы <code>heading</code> и <code>content</code></li>
-    <li>Сниппет <code>exercise-wrapper.liquid</code> должен иметь свои стили.</li>
-    <li>Возможные улучшения и оптимизация приветствуется.</li>
-</ol>
-
+{% render 'exercise-6' %}
 
 {% schema %}
     {

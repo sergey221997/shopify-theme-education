@@ -1,5 +1,11 @@
-{% # 
-    #Props:
-    # content: HTML
-    # heading: String
-%}
+{{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+
+<div class="tabs">
+    <div class="tabs-header">
+        {{ nav }}
+    </div>
+
+    <div class="tabs-inner">
+        {{ content }}
+    </div>
+</div> 

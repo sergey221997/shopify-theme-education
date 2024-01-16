@@ -1,42 +1,42 @@
 {{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
 
-<div class="tabs">
-    <div class="tabs-header">
-        <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
-        <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
+{% capture nav %}
+    <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
+    <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
+{% endcapture %}
+    
+{% capture content %}
+    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
+    <div class="tabs-content">
+        <h5>Раунд 1</h5>
+        <ol>
+            <li>Переключать жирный шрифт чекбоксом use_bold_font</li> 
+            <li>Переключать курсивный шрифт чекбоксом use_italic_font</li>
+            <li>Размер шрифта регулируется сеттингом font_size типа number</li>
+            <li>Ширина секции регулируется сеттингом section_width типа range</li>
+            <li>Контент выравнивается с помощью сеттинга content_alignment типа select (left/center/right)</li>
+            <li>Сеттинг для хэдинга - heading_text типа text</li>
+            <li>Переключать подчёркнутый шрифт heading чекбоксом use_bold</li>
+            <li>Сеттинг для сабхэдинга - subheading_text типа text</li>
+            <li>Subheading находится над или после heading в зависимости от сеттинга subheading_position типа radio</li>
+            <li>Если есть хоть 1 инпут блок - рэндерить сниппет contact-form передавая в него блоки:</li>
+            <ol>
+                <li>Textarea message input блок</li>
+                <li>Text e-mail input блок</li>
+            </ol>
+        </ol>
     </div>
 
-    <div class="tabs-inner">
-        <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-        <div class="tabs-content">
-            <h5>Раунд 1</h5>
-            <ol>
-                <li>Переключать жирный шрифт чекбоксом use_bold_font</li> 
-                <li>Переключать курсивный шрифт чекбоксом use_italic_font</li>
-                <li>Размер шрифта регулируется сеттингом font_size типа number</li>
-                <li>Ширина секции регулируется сеттингом section_width типа range</li>
-                <li>Контент выравнивается с помощью сеттинга content_alignment типа select (left/center/right)</li>
-                <li>Сеттинг для хэдинга - heading_text типа text</li>
-                <li>Переключать подчёркнутый шрифт heading чекбоксом use_bold</li>
-                <li>Сеттинг для сабхэдинга - subheading_text типа text</li>
-                <li>Subheading находится над или после heading в зависимости от сеттинга subheading_position типа radio</li>
-                <li>Если есть хоть 1 инпут блок - рэндерить сниппет contact-form передавая в него блоки:</li>
-                <ol>
-                    <li>Textarea message input блок</li>
-                    <li>Text e-mail input блок</li>
-                </ol>
-            </ol>
-        </div>
-
-        <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
-        <div class="tabs-content">
-            <h5>Раунд 2</h5>
-            <ol>
-                <li>content_alignment типа select изменить на выравнивание текста</li>
-                <li>font size renje исправить на november</li>
-                <li>content_alignment типа select решить с помощью структуры (доп задание флексами (left,top,bottom))</li>
-                <li>Рефактр формы</li>
-            </ol>
-        </div>
+    <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
+    <div class="tabs-content">
+        <h5>Раунд 2</h5>
+        <ol>
+            <li>content_alignment типа select изменить на выравнивание текста</li>
+            <li>font size renje исправить на november</li>
+            <li>content_alignment типа select решить с помощью структуры (доп задание флексами (left,top,bottom))</li>
+            <li>Рефактр формы</li>
+        </ol>
     </div>
-</div> 
+{% endcapture %}
+
+{% render 'exercise-wrapper', nav: nav, content: content %}

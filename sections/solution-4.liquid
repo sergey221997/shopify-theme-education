@@ -23,9 +23,8 @@
         {% if section.settings.subheading_position == 'bottom' %}
             {{ subheading_content }}
         {% endif %}
-        {% if section.blocks != empty %}
-            {% render 'contact-form', blocks: section.blocks %}
-        {% endif %}
+        
+        {% render 'contact-form', blocks: section.blocks %}
     </div>
 </div> 
 

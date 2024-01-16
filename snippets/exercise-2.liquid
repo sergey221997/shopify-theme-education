@@ -1,38 +1,40 @@
 {{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
 
-<div class="tabs">
-    <div class="tabs-header">
-        <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
-        <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
-        <label class="tabs-header-label" id="label3" for="tab3">Раунд 3</label>
+{% capture nav %}            
+    <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
+    <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
+    <label class="tabs-header-label" id="label3" for="tab3">Раунд 3</label>
+{% endcapture %}
+
+{% capture content %}
+    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
+    <div class="tabs-content">
+        <h5>Раунд 1</h5>
+        <ol>
+            <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true, в проотивном случае показывать альтернативный контент</li>
+            <li>Если <code>section.settings.use_red_color</code> равен true сделать цвет фона body красным. Желтый по умолчанию.</li>
+        </ol>
     </div>
 
-    <div class="tabs-inner">
-        <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-        <div class="tabs-content">
-            <h5>Раунд 1</h5>
-            <ol>
-                <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true, в проотивном случае показывать альтернативный контент</li>
-                <li>Если <code>section.settings.use_red_color</code> равен true сделать цвет фона body красным. Желтый по умолчанию.</li>
-            </ol>
-        </div>
-
-        <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
-        <div class="tabs-content">
-            <h5>Раунд 2</h5>
-            <ol>
-                <li>Избавиться от явной проверки на true</li>
-                <li>Использовать css переменные для стилизации body</li>
-                <li>DRY (Don't repeat yourself)</li>
-            </ol>
-        </div>
-
-        <input class="tabs-input" id="tab3" type="checkbox" name="tabs">
-        <div class="tabs-content">
-            <h5>Раунд 3</h5>
-            <ol>
-                <li>Если .use_red_color равен true сделать цвет фона body красным. Желтый по умолчанию.Не трогать тег body,root,внутри тега style нет ликвида (использовать только if (не использовать else))</li>
-            </ol>
-        </div>
+    <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
+    <div class="tabs-content">
+        <h5>Раунд 2</h5>
+        <ol>
+            <li>Избавиться от явной проверки на true</li>
+            <li>Использовать css переменные для стилизации body</li>
+            <li>DRY (Don't repeat yourself)</li>
+        </ol>
     </div>
-</div>
+
+    <input class="tabs-input" id="tab3" type="checkbox" name="tabs">
+    <div class="tabs-content">
+        <h5>Раунд 3</h5>
+        <ol>
+            <li>Если .use_red_color равен true сделать цвет фона body красным. Желтый по умолчанию.Не трогать тег body,root,внутри тега style нет ликвида (использовать только if (не использовать else))</li>
+        </ol>
+    </div>
+{% endcapture %}
+
+{% render 'exercise-wrapper', nav: nav, content: content %}
+        
+
