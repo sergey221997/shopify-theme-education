@@ -1,10 +1,15 @@
+{{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign NS = 'tabs'
+%}
+
 {% capture nav %}
-    <label class="tabs-header-label" id="label1" for="tab1">Задание 1</label>
+    <label class="{{ NS }}-header-label" id="label1" for="tab1">Задание 1</label>
 {% endcapture %}
 
 {% capture content %}
-    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h4>(Capture, snippets)</h4>
         <h5>Создать и использовать сниппет для условий задач</h5>
         <ol>

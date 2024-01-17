@@ -1,12 +1,15 @@
 {{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign NS = 'tabs'
+%}
 
 {% capture nav %}
-    <label class="tabs-header-label" id="label1" for="tab1">задание 1</label>
+    <label class="{{ NS }}-header-label" id="label1" for="tab1">задание 1</label>
 {% endcapture %}
   
 {% capture content %}
-    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h3>Закрепление if statements</h3>
         <h5>Каждое условие должно быть описано одним выражением (if statement)</h5>
         <ol>

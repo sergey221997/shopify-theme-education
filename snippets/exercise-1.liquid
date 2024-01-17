@@ -1,14 +1,17 @@
  {{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign NS = 'tabs'
+%}
 
 {% capture nav %}            
-    <label class="tabs-header-label" id="label1" for="tab1">Раунд 1</label>
-    <label class="tabs-header-label" id="label2" for="tab2">Раунд 2</label>
-    <label class="tabs-header-label" id="label3" for="tab3">Раунд 3</label>
+    <label class="{{ NS }}-header-label" id="label1" for="tab1">Раунд 1</label>
+    <label class="{{ NS }}-header-label" id="label2" for="tab2">Раунд 2</label>
+    <label class="{{ NS }}-header-label" id="label3" for="tab3">Раунд 3</label>
 {% endcapture %}
 
 {% capture content %}
-    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h5>Раунд 1</h5>
         <ol>
             <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true</li>
@@ -19,8 +22,8 @@
         </ol>
     </div>
 
-    <input class="tabs-input" id="tab2" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab2" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h5>Раунд 2</h5>
         <ol>
             <li>Во всех секциях визуально отделить условия задачи от контента</li>
@@ -35,8 +38,8 @@
         </ol>
     </div>
 
-    <input class="tabs-input" id="tab3" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab3" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h5>Раунд 3</h5>
         <ol>
             <li>В теге p пропы которые используются в атрибкуте style вынести в переменные</li>

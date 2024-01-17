@@ -9,7 +9,9 @@
 {% if section.settings.show_heading or section.settings.show_text %}
     <div class="{{ NS }}-content">
         {% if section.settings.show_heading %}
-            <h3 class="{{ NS }}-heading" style="--heading-color: {{ heading_color }};">
+            <h3 class="{{ NS }}-heading" style="{% if section.settings.use_color %}
+    
+             --heading-color: {{ heading_color }};{% endif %}">
                 {{ section.settings.heading }}
             </h3>
         {% endif %}    
@@ -24,6 +26,8 @@
         {% endif %}
     </div> 
 {% endif %}
+
+
     
 {% schema %}
     {

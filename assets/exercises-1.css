@@ -4,7 +4,7 @@
 }
 
 .exercise-one-heading {
-    color: var(--heading-color);
+    color: var(--heading-color,#000);
 }
 
 .exercise-one-text {

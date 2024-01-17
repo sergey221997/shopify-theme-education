@@ -1,0 +1,11 @@
+.tabs-header {
+    display: flex;
+    margin-bottom: .5rem;
+    justify-content: right;
+    gap: 1rem;
+}
+
+.tabs-inner {
+    display: flex;
+    gap: 1rem;
+}

@@ -1,10 +1,15 @@
+{{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign NS = 'tabs'
+%}
+
 {% capture nav %}
-    <label class="tabs-header-label" id="label1" for="tab1">Задание 1</label>
+    <label class="{{ NS }}-header-label" id="label1" for="tab1">Задание 1</label>
 {% endcapture %}
 
 {% capture content %}
-    <input class="tabs-input" id="tab1" type="checkbox" name="tabs">
-    <div class="tabs-content">
+    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
+    <div class="{{ NS }}-content">
         <h4>(Filters, snippets, iterations)</h4>
         <h5>Для чисел из сеттинга values вывести натуральные делители</h5>
         <cite>(Делитель натурального числа a – это натуральное число <code>b</code>, на которое число a делится без остатка.)</cite>   

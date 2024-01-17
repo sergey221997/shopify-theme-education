@@ -7,13 +7,6 @@
         --box-shadow: 0 10px 6px -6px var(--color-shadow);
     }
 
-    .tabs-header {
-        display: flex;
-        margin-bottom: .5rem;
-        justify-content: right;
-        gap: 1rem;
-    }
-
     .tabs-header-label {
         font-size: .9rem;
         flex-basis: 7rem;
@@ -26,11 +19,6 @@
     .tabs-header-label:hover {
         cursor: pointer;
         background-color: var(--color-hover);
-    }
-
-    .tabs-inner {
-        display: flex;
-        gap: 1rem;
     }
 
     .tabs-content, .tabs-input {
