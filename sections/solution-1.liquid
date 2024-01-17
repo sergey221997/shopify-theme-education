@@ -1,25 +1,29 @@
 {{ 'exercises-1.css' | asset_url | stylesheet_tag }}
-{% assign heading_color = section.settings.heading_color %}
+{% render 'exercise-1' %}
 
-    {% render 'exercise-1' %}
-    {% if section.settings.show_heading or section.settings.show_text %}
-        <div class="content">
-            {% if section.settings.show_heading %}
-                <h3 class="heading" style="--heading-color: {{ heading_color }};">
-                    {{ section.settings.heading }}
-                </h3>
-            {% endif %}    
+{% liquid
+    assign NS = 'exercise-one'    
+    assign heading_color = section.settings.heading_color
+%}
+
+{% if section.settings.show_heading or section.settings.show_text %}
+    <div class="{{ NS }}-content">
+        {% if section.settings.show_heading %}
+            <h3 class="{{ NS }}-heading" style="--heading-color: {{ heading_color }};">
+                {{ section.settings.heading }}
+            </h3>
+        {% endif %}    
                 
-            {% if section.settings.show_text %} 
-                <p class="text" style="{% if section.settings.heading == blank %}--font-weight: bold;{% else %}--font-style: italic;{% endif %}">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            {% endif %}
-        </div> 
-    {% endif %}
+        {% if section.settings.show_text %} 
+            <p class="{{ NS }}-text" style="{% if section.settings.heading == blank %}--font-weight: bold;{% else %}--font-style: italic;{% endif %}">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        {% endif %}
+    </div> 
+{% endif %}
     
 {% schema %}
     {

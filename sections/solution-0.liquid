@@ -1,7 +1,12 @@
+{% liquid
+    assign NS = 'exercise-zero'
+%}
+
+
 {% render 'exercise-0' %}
 
-<ol>
-    <li>
+<ol class="{{ NS }}-content">
+    <li class="{{ NS }}-content-list">
         {% if section.settings.number_one > section.settings.number_two and section.settings.number_one >= 3  %}
             ДА
         {% else %}
@@ -9,7 +14,7 @@
         {% endif %}
     </li>
 
-    <li>
+    <li class="{{ NS }}-content-list">
         {% if section.settings.number_one > 6 or section.settings.number_one < 3 %}
             Да
         {% else %}
@@ -17,7 +22,7 @@
         {% endif %} 
     </li>
 
-    <li>
+    <li class="{{ NS }}-content-list">
         {% if section.settings.number_two < 9 and section.settings.number_one > 3 and section.settings.number_one < 8 %}
             Да
         {% else %}
@@ -32,7 +37,7 @@
         {% assign max_number = section.settings.number_three%}     
     {% endif %}
 
-    <li>Наибольшее значение: {{ max_number }}</li>   
+    <li class="{{ NS }}-content-list">Наибольшее значение: {{ max_number }}</li>   
 </ol>
 
 {% schema %}

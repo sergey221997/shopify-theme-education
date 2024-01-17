@@ -1,6 +1,8 @@
 {{ 'exercises-3.css' | asset_url | stylesheet_tag }}
 
 {% liquid
+    assign NS = 'exercises-three'
+
     case section.settings.weather
         when 'rain'
             assign text_content = 'Идёт дождь'
@@ -24,14 +26,14 @@
     endcase
 %}
 
-<div class="wrapper"{% if color_bg %}style="--color-bg: {{ color_bg }};"{% endif %}>
+<div class="{{ NS }}-wrapper"{% if color_bg %}style="--color-bg: {{ color_bg }};"{% endif %}>
     {% render 'exercise-3' %}
-    <div class="metcast">
-        <h3 class="metcast-title"
+    <div class="{{ NS }}-metcast">
+        <h3 class="{{ NS }}-title"
             {% if color_title %}style="--color-title: {{ color_title }};"{% endif %}>
             Прогноз:
         </h3> 
-        <p class="metcast-value"
+        <p class="{{ NS }}-value"
             {% if color_text or font_weight %}
                 style="{% if color_text %}--color-text: {{ color_text }};{% endif %}
                 {% if font_weight %}--font-weight: {{ font_weight }};{% endif %}"

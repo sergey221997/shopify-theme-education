@@ -1,19 +1,19 @@
-.wrapper {
+.exercises-three-wrapper {
     height: 100vh;
-    background-color: var(--color-bg, white);
+    background-color: var(--color-bg, #fff);
 }
 
-.metcast {
+.exercises-three-metcast {
     display: flex;
     gap: .5rem;
     align-items: center;
 }
 
-.metcast-value {
-    color: var(--color-text, black);
-    font-weight: var(--font-weight, normal);
+.exercises-three-title {
+    color: var(--color-title, #000);
 }
 
-.metcast-title {
-    color: var(--color-title, black);
+.exercises-three-value {
+    color: var(--color-text, #000);
+    font-weight: var(--font-weight, normal);
 }

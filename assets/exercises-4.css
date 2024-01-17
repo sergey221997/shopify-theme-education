@@ -1,16 +1,16 @@
-.content {
+.exercise-four-content {
     font-size: var(--font-size);
     font-weight: var(--font-weight, normal);
     font-style: var(--font-style, normal);
-    background-color: green;
+    background-color: #008000;
     width: var(--width);
 } 
 
-.content-inner {
+.exercise-four-inner {
     text-align: var(--align-content);
 } 
 
-.text-heading {  
+.exercise-four-heading {  
     text-decoration: var(--text-decoration, inherit);
 }
 
@@ -19,5 +19,5 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: red;
+    background-color: #FF0000;
 }

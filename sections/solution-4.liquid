@@ -1,12 +1,16 @@
 {{ 'exercises-4.css' | asset_url | stylesheet_tag }}
 {% render 'exercise-4', blocks: section.blocks %}
 
+{% liquid
+    assign NS = 'exercise-four' 
+%}
+
 {% capture subheading_content %}
     <p class="text-subheading">{{ section.settings.subheading_text }}</p>
 {% endcapture %}
 
 <div 
-    class="content" 
+    class="{{ NS }}-content" 
     style="
     {% if section.settings.use_bold_font %}--font-weight: bold;{% endif %}
     {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
@@ -15,15 +19,14 @@
     --width: {{ section.settings.section_width }}%;
     --align-content: {{ section.settings.content_alignment }};"
 >
-    <div class="content-inner">   
+    <div class="{{ NS }}-inner">   
         {% if section.settings.subheading_position == 'top' %}
             {{ subheading_content }}
         {% endif %}  
-            <h3 class="text-heading">{{ section.settings.heading_text }}</h3>
+            <h3 class="{{ NS }}-heading">{{ section.settings.heading_text }}</h3>
         {% if section.settings.subheading_position == 'bottom' %}
             {{ subheading_content }}
-        {% endif %}
-        
+        {% endif %}       
         {% render 'contact-form', blocks: section.blocks %}
     </div>
 </div> 
