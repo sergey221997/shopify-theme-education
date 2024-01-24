@@ -9,27 +9,31 @@
     <p class="text-subheading">{{ section.settings.subheading_text }}</p>
 {% endcapture %}
 
-<div 
-    class="{{ NS }}-content" 
-    style="
-    {% if section.settings.use_bold_font %}--font-weight: bold;{% endif %}
-    {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
-    {% if section.settings.use_underline %}--text-decoration: underline;{% endif %}
-    --font-size: {{ section.settings.font_size }}px;
-    --width: {{ section.settings.section_width }}%;
-    --align-content: {{ section.settings.content_alignment }};"
->
-    <div class="{{ NS }}-inner">   
-        {% if section.settings.subheading_position == 'top' %}
-            {{ subheading_content }}
-        {% endif %}  
-            <h3 class="{{ NS }}-heading">{{ section.settings.heading_text }}</h3>
-        {% if section.settings.subheading_position == 'bottom' %}
-            {{ subheading_content }}
-        {% endif %}       
-        {% render 'contact-form', blocks: section.blocks %}
-    </div>
-</div> 
+{% capture solution %}
+    <div 
+        class="{{ NS }}-content" 
+        style="
+        {% if section.settings.use_bold_font %}--font-weight: bold;{% endif %}
+        {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
+        {% if section.settings.use_underline %}--text-decoration: underline;{% endif %}
+        --font-size: {{ section.settings.font_size }}px;
+        --width: {{ section.settings.section_width }}%;
+        --align-content: {{ section.settings.content_alignment }};"
+    >
+        <div class="{{ NS }}-inner">   
+            {% if section.settings.subheading_position == 'top' %}
+                {{ subheading_content }}
+            {% endif %}  
+                <h3 class="{{ NS }}-heading">{{ section.settings.heading_text }}</h3>
+            {% if section.settings.subheading_position == 'bottom' %}
+                {{ subheading_content }}
+            {% endif %}       
+            {% render 'contact-form', blocks: section.blocks %}
+        </div>
+    </div> 
+{% endcapture %}
+
+{% render 'solution-wrapper', solution: solution %}
 
 {% schema %}
     {

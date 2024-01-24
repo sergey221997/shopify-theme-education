@@ -1,5 +1,11 @@
 {% render 'exercise-5' %}
 
+{% capture solution %}
+    {% render 'delimeters' %}
+{% endcapture %}
+
+{% render 'solution-wrapper', solution: solution %}
+
 {% schema %}
     {
         "name": "Exercise 5",

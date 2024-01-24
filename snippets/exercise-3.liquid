@@ -1,4 +1,4 @@
-{{ 'style_tabs_bases.css' | asset_url | stylesheet_tag }}
+{{ 'style-tabs-bases.css' | asset_url | stylesheet_tag }}
 {% liquid
     assign NS = 'tabs'
 %}
@@ -58,4 +58,3 @@
 {% endcapture %}
 
 {% render 'exercise-wrapper', nav: nav, content: content %}
-  

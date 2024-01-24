@@ -1,0 +1,23 @@
+.natural-divisors-wrapper {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.natural-divisors-inner {
+    border: 1px solid #000;
+    padding: 1rem;
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.natural-divisors-header {
+    font-weight: bold; 
+    font-size: 1.1rem;
+}
+
+.natural-divisors-value {
+    font-size: 1.1rem;
+    margin: .5rem;
+}

@@ -2,43 +2,45 @@
     assign NS = 'exercise-zero'
 %}
 
-
 {% render 'exercise-0' %}
-
-<ol class="{{ NS }}-content">
-    <li class="{{ NS }}-content-list">
-        {% if section.settings.number_one > section.settings.number_two and section.settings.number_one >= 3  %}
-            ДА
-        {% else %}
-            Нет
+{% capture solution %}
+    <ol class="{{ NS }}-content">
+        <li class="{{ NS }}-content-list">
+            {% if section.settings.number_one > section.settings.number_two and section.settings.number_one >= 3  %}
+                ДА
+            {% else %}
+                Нет
+            {% endif %}
+        </li>
+    
+        <li class="{{ NS }}-content-list">
+            {% if section.settings.number_one > 6 or section.settings.number_one < 3 %}
+                Да
+            {% else %}
+                Нет
+            {% endif %} 
+        </li>
+    
+        <li class="{{ NS }}-content-list">
+            {% if section.settings.number_two < 9 and section.settings.number_one > 3 and section.settings.number_one < 8 %}
+                Да
+            {% else %}
+                Нет   
+            {% endif %} 
+        </li>
+    
+        {% assign max_number = section.settings.number_one %}
+        {% if section.settings.number_two > max_number %}
+            {% assign max_number = section.settings.number_two %}
+        {% elsif section.settings.number_three > max_number %}
+            {% assign max_number = section.settings.number_three%}     
         {% endif %}
-    </li>
+    
+        <li class="{{ NS }}-content-list">Наибольшее значение: {{ max_number }}</li>   
+    </ol>
+{% endcapture %}
 
-    <li class="{{ NS }}-content-list">
-        {% if section.settings.number_one > 6 or section.settings.number_one < 3 %}
-            Да
-        {% else %}
-            Нет
-        {% endif %} 
-    </li>
-
-    <li class="{{ NS }}-content-list">
-        {% if section.settings.number_two < 9 and section.settings.number_one > 3 and section.settings.number_one < 8 %}
-            Да
-        {% else %}
-            Нет   
-        {% endif %} 
-    </li>
-
-    {% assign max_number = section.settings.number_one %}
-    {% if section.settings.number_two > max_number %}
-        {% assign max_number = section.settings.number_two %}
-    {% elsif section.settings.number_three > max_number %}
-        {% assign max_number = section.settings.number_three%}     
-    {% endif %}
-
-    <li class="{{ NS }}-content-list">Наибольшее значение: {{ max_number }}</li>   
-</ol>
+{% render 'solution-wrapper', solution: solution %}
 
 {% schema %}
     {

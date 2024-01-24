@@ -1,9 +1,26 @@
-{% comment %}
-    Props:     
-        value
-{% endcomment %}
+{{ 'delimeters.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign NS = 'natural-divisors'
+    assign numbers = "16,4,20,44,25" | split: "," 
+%}
 
-<h5>For value {{ value }}</h5>
-No natural divisors
-
-
+<div class="{{ NS }}-wrapper">
+    {% for number in numbers %}
+        {% assign num = number %}
+        <div class="{{ NS }}-inner">
+            <h4 class="{{ NS }}-header">{{ "for value" | append: " " | append: num | capitalize }}</h4>
+            {% assign has_divisors = false %}
+            {% assign divisor_range = (1..num) | reverse %}
+            {% for value in divisor_range %}
+                {% assign remainder = num | modulo: value %}
+                {% if remainder == 0 %}
+                    <p class="{{ NS }}-value">{{ value }}</p>
+                    {% assign has_divisors = true %}
+                {% endif %}  
+            {% endfor %}
+            {% unless has_divisors %}
+                <p class="{{ NS }}-value">Нет делителей</p>
+            {% endunless %}
+        </div>
+    {% endfor %}
+</div>

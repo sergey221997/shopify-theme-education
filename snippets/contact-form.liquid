@@ -2,7 +2,7 @@
     assign NS = 'contact-form'
 %}
 
-{% capture test %}
+{% capture form_fields %}
     {% for block in blocks %}
         {% case block.type %}
         {% when 'email' %}
@@ -15,17 +15,9 @@
     {% endfor %}
 {% endcapture %}
   
-{% if test != blank %}            
+{% if form_fields != blank %}            
     <form class="{{ NS }}" action="#">
-        {{ test }}
+        {{ form_fields }}
         <button class="{{ NS }}-button" type="submit">Submit</button>  
     </form>
-{% endif %}
-
-
-
-
-
-
-
-
+{% endif %}   
