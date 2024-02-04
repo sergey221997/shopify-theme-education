@@ -34,7 +34,7 @@
                 Прогноз:
             </h3> 
             <p class="{{ NS }}-value"
-                {% if color_text or font_weight %}
+                {%- if color_text or font_weight %}
                     style="{% if color_text %}--color-text: {{ color_text }};{% endif %}
                     {% if font_weight %}--font-weight: {{ font_weight }};{% endif %}"
                 {% endif %}>

@@ -1,26 +1,31 @@
-{{ 'delimeters.css' | asset_url | stylesheet_tag }}
 {% liquid
     assign NS = 'natural-divisors'
-    assign numbers = "16,4,20,44,25" | split: "," 
+    assign cn = NS
+    assign numbers = "16,4,20,44,25,0" | split: "," 
 %}
 
-<div class="{{ NS }}-wrapper">
+{{ 'delimeters.css' | asset_url | stylesheet_tag }}
+{% assign test = 'delimeters.css' | stylesheet_tag %}
+{{ test }}
+{{ test | asset_url}}
+
+
+<div class="{{ cn }}-wrapper">
     {% for number in numbers %}
-        {% assign num = number %}
-        <div class="{{ NS }}-inner">
-            <h4 class="{{ NS }}-header">{{ "for value" | append: " " | append: num | capitalize }}</h4>
+        <div class="{{ cn }}-inner">
+            <h4 class="{{ cn }}-header">{{  "for value" | append: " " | append: 'another value' | upcase }}</h4>
             {% assign has_divisors = false %}
-            {% assign divisor_range = (1..num) | reverse %}
+            {% assign divisor_range = (1..number) %}
             {% for value in divisor_range %}
-                {% assign remainder = num | modulo: value %}
+                {% assign remainder = number | modulo: value %}
                 {% if remainder == 0 %}
-                    <p class="{{ NS }}-value">{{ value }}</p>
+                    <p class="{{ cn }}-value">{{ value }}</p>
                     {% assign has_divisors = true %}
                 {% endif %}  
             {% endfor %}
             {% unless has_divisors %}
-                <p class="{{ NS }}-value">Нет делителей</p>
+                <p class="{{ cn }}-value">Нет делителей</p>
             {% endunless %}
         </div>
     {% endfor %}
-</div>
+</div> 

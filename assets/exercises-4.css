@@ -14,10 +14,3 @@
     text-decoration: var(--text-decoration, inherit);
 }
 
-.contact-form {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: #FF0000;
-}
