@@ -11,29 +11,30 @@
      
 {% endcomment %}
 
-{% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+ {% comment %} {% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
 
-{{ string | split: '' | uniq | sort }} 
+{{ string | split: '' | uniq | sort | join: '' }}  {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% render 'section-wrapper', solution: solution %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {% schema %}
     {
