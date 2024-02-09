@@ -1,8 +1,7 @@
 {{ 'exercises-4.css' | asset_url | stylesheet_tag }}
-{% render 'exercise-4', blocks: section.blocks %}
 
 {% liquid
-    assign NS = 'exercise-four' 
+assign NS = 'exercise-four' 
 %}
 
 {% capture subheading_content %}
@@ -11,16 +10,18 @@
 
 {% capture solution %}
     <div 
-        class="{{ NS }}-content" 
-        style="
+    class="{{ NS }}-content" 
+    style="
         {% if section.settings.use_bold_font %}--font-weight: bold;{% endif %}
-        {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
-        {% if section.settings.use_underline %}--text-decoration: underline;{% endif %}
-        --font-size: {{ section.settings.font_size }}px;
-        --width: {{ section.settings.section_width }}%;
-        --align-content: {{ section.settings.content_alignment }};"
+            {% if section.settings.use_italic_font %}--font-style: italic;{% endif %}
+                {% if section.settings.use_underline %}--text-decoration: underline;{% endif %}
+                    --font-size: {{ section.settings.font_size }}px;
+                    --width: {{ section.settings.section_width }}%;
+                    --align-content: {{ section.settings.content_alignment }};"
     >
-        <div class="{{ NS }}-inner">   
+    <div class="{{ NS }}-inner">   
+            {% render 'exercise-4', blocks: section.blocks %}
+            
             {% if section.settings.subheading_position == 'top' %}
                 {{ subheading_content }}
             {% endif %}  
@@ -33,7 +34,7 @@
     </div> 
 {% endcapture %}
 
-{% render 'solution-wrapper', solution: solution %}
+{% render 'section-wrapper', solution: solution %}
 
 {% schema %}
     {

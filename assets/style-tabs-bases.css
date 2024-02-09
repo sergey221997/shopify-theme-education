@@ -1,4 +1,3 @@
-
     :root {
         --color-hero: #2F73B6;
         --color-secondary: #e8f3ff;
@@ -7,7 +6,7 @@
         --box-shadow: 0 10px 6px -6px var(--color-shadow);
     }
 
-    .tabs-header-label {
+    .exercise-nav-label {
         font-size: .9rem;
         flex-basis: 7rem;
         text-align: center;
@@ -16,20 +15,21 @@
         background-color: var(--color-hero);
     }
     
-    .tabs-header-label:hover {
+    .exercise-nav-label:hover {
         cursor: pointer;
         background-color: var(--color-hover);
     }
 
-    .tabs-content, .tabs-input {
+    .exercise-content-text, .exercise-input {
         display: none;
     }
 
-    .tabs-input:checked + .tabs-content {
+    .exercise-input:checked + .exercise-content-text {
         display: block;
         font-size: .9rem;
         width: 50%;
         padding: .7rem;
+        margin-bottom: 1rem;
         border: 1px solid var(--color-hero);
         background: var(--color-secondary);
         border-left: 1rem solid var(--color-hero);

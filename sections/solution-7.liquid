@@ -1,0 +1,47 @@
+{% render 'exercise-7' %}
+
+{% comment %}
+    {% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+    {% assign string_array = string | split: '' %}
+    {% assign array_sort_alphabet = string_array | sort %}
+    {% assign array_sort_delete = array_sort_alphabet | uniq %}
+    {% assign value = array_sort_delete %}
+
+    {{ value }}
+     
+{% endcomment %}
+
+{% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+
+{{ string | split: '' | uniq | sort }} 
+
+{% render 'section-wrapper', solution: solution %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Exercise 7",
+        "presets": [
+            {
+                "name": "Exercise 7"
+            }
+        ]
+    }
+{% endschema %}

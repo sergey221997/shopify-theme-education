@@ -1,11 +1,15 @@
 {{ 'exercise-wrapper.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+    assign NS = 'exercise'
+%}
+
+<div class="{{ NS }}" >
+    <div class="{{ NS }}-nav">
+        {{ Nav }}
+    </div>   
     
-    <div class="tabs" >
-        <div class="tabs-header">
-            {{ nav }}
-        </div>   
-    
-        <div class="tabs-inner">
-            {{ content }}
-        </div>
-    </div> 
+    <div class="{{ NS }}-content">
+        {{ Content }}
+    </div>
+</div> 

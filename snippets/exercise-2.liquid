@@ -1,41 +1,32 @@
-{{ 'style-tabs-bases.css' | asset_url | stylesheet_tag }}
-{% liquid
-    assign NS = 'tabs'
-%}
-
-{% capture nav %}            
-    <label class="{{ NS }}-header-label" id="label1" for="tab1">Раунд 1</label>
-    <label class="{{ NS }}-header-label" id="label2" for="tab2">Раунд 2</label>
-    <label class="{{ NS }}-header-label" id="label3" for="tab3">Раунд 3</label>
+{% assign round_name1 = 'Round 1' %}
+{% capture round1_lists %}
+    <li>
+        Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда 
+        <code>section.settings.show_content</code> 
+        равен true, в проотивном случае показывать альтернативный контент
+    </li>
+    <li>
+        Если
+        <code>section.settings.use_red_color</code> 
+        равен true сделать цвет фона body красным. Желтый по умолчанию.
+    </li>
 {% endcapture %}
 
-{% capture content %}
-    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 1</h5>
-        <ol>
-            <li>Показывать всё содержимое контента, помеченого как "Контент" комментарием, только когда <code>section.settings.show_content</code> равен true, в проотивном случае показывать альтернативный контент</li>
-            <li>Если <code>section.settings.use_red_color</code> равен true сделать цвет фона body красным. Желтый по умолчанию.</li>
-        </ol>
-    </div>
-
-    <input class="{{ NS }}-input" id="tab2" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 2</h5>
-        <ol>
-            <li>Избавиться от явной проверки на true</li>
-            <li>Использовать css переменные для стилизации body</li>
-            <li>DRY (Don't repeat yourself)</li>
-        </ol>
-    </div>
-
-    <input class="{{ NS }}-input" id="tab3" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 3</h5>
-        <ol>
-            <li>Если .use_red_color равен true сделать цвет фона body красным. Желтый по умолчанию.Не трогать тег body,root,внутри тега style нет ликвида (использовать только if (не использовать else))</li>
-        </ol>
-    </div>
+{% assign round_name2 = 'Round 2' %}
+{% capture round2_lists %}
+    <li>Избавиться от явной проверки на true</li>
+    <li>Использовать css переменные для стилизации body</li>
+    <li>DRY (Don't repeat yourself)</li>
 {% endcapture %}
 
-{% render 'exercise-wrapper', nav: nav, content: content %}
+{% capture Nav %}
+    {% render 'exercise-nav', round_name: round_name1 %}
+    {% render 'exercise-nav', round_name: round_name2 %}
+{% endcapture %} 
+
+{% capture Content %}
+    {% render 'exercise-content', round_name: round_name1, round_lists: round1_lists %}
+    {% render 'exercise-content', round_name: round_name2, round_lists: round2_lists %}
+{% endcapture %}
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}

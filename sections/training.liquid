@@ -1,0 +1,177 @@
+{{ 'filters-test.css' | asset_url | stylesheet_tag }}
+
+{% comment %} временый файл для тренировки {% endcomment %}
+
+ {% comment %} {% assign style_url = 'exercises-1.css' | asset_url %}
+
+<link rel="stylesheet" href="{{ style_url }}">
+
+{% assign style_tag = style_url | stylesheet_tag %}
+{{ style_tag }}
+
+<link rel="stylesheet" href="exercises-1.css">  {% endcomment %}
+
+
+{% comment %} фильтр remove {% endcomment %}
+{% comment %} {% assign original_text = "Hello, World" %}
+{% assign modified_text = original_text | remove: "," %}
+{{ modified_text }} {% endcomment %}
+
+{% comment %} фильтр concate {% endcomment %}
+{% comment %} {% assign array1 = "1, 2, 3" | split: ", " %}
+{% assign array2 = "4, 5, 6" | split: ", " %}
+{% assign combined_array = array1 | concat: array2 %}
+{{ combined_array }} {% endcomment %}
+
+{% comment %} фильтр join {% endcomment %}
+ {% comment %} {% assign test = '1,2,3' | split: ','%}
+{{ test | join: '-'  }}  {% endcomment %}
+
+{% comment %} фильтр first {% endcomment %}
+{% comment %} {% assign test = 'a,b,c' | split: ',' %}
+{{ test | first}} {% endcomment %}
+
+{% comment %} фильтр last {% endcomment %}
+{% comment %} {% assign test = '1,2,3' | split: ','%}
+{{ test | last}} {% endcomment %}
+
+{% comment %} фильтр uniq {% endcomment %}
+{% comment %} {% assign test = '1,1,2,2,3,3,3' | split: ',' %}
+{{ test | uniq }} {% endcomment %}
+
+{% comment %} фильтр capitalize {% endcomment %}
+ {% comment %} {% assign test = 'hello world' %}
+{{ test | capitalize }}  {% endcomment %}
+
+{% comment %} фильтр downcase {% endcomment %}
+{% comment %} {% assign test = 'HELLO WORLD' %}
+{{ test | downcase }} {% endcomment %}
+
+{% comment %} фильтр sum {% endcomment %}
+{% comment %} {% assign test = '5,5,5' | split: ',' %}
+{{ test | sum }} {% endcomment %}
+
+{% comment %} фильтр append prepend {% endcomment %}
+{% comment %} {% assign number = 'world' | prepend: ' ' %}
+{{ number | append: '!' | prepend: 'hello' }} {% endcomment %}
+
+{% comment %} {% assign test = 'Hello world!' %}
+<span>
+    {{ test | highlight: 'world' }}
+</span> {% endcomment %}
+
+{% comment %} {{ 'test' | link_to: 'https://www.shopify.com' , 'hello' , class:"link" }}  {% endcomment %}
+{% comment %} <a href="https://www.shopify.com" title="hello" class="link">test</a> {% endcomment %}
+
+{% comment %} {% assign cap_test = '' %}
+
+{% assign cap_test = test | capitalize %}
+{{ test }}
+
+{% assign test = 'hello,world' | split: ',' %}
+{% assign first_word = test | first %}
+{% assign last_word = test | last %}
+{% assign space = ' ' %}
+
+{{ test | first | append: ' ' | append: test[1] }} {% endcomment %}
+
+{% comment %} {% assign test = (1..15) %} {% endcomment %}
+
+{% comment %} {% for item in test %} {% endcomment %}
+
+
+{% comment %} {% assign string = 'Hello world' %}
+{% assign str_array = string | split: '' %}
+
+{% for item in str_array reversed %}
+    {{ item }} 
+{% endfor %} {% endcomment %}
+
+
+{% comment %} {% assign new_string = '' %}
+{% for item in str_array %}
+    {% assign new_string = new_string | prepend: item  %}
+{% endfor %}
+{{ new_string }} {% endcomment %}
+
+{% comment %} любые фильтры использовать (не использовать for){% endcomment %}
+
+{% comment %} {% assign string = 'Hello world' %}
+
+
+{{ string_array }} {% endcomment %}
+{% comment %} {% assign text = 'hello world' | split: ' '%}
+
+{{ text[1] | upcase}} {% endcomment %}
+
+{% comment %} {% assign array = "яблоко груша банан" | split: ' ' %}
+{{ array | join: ' / ' }} {% endcomment %}
+
+
+
+
+
+{% comment %} {% assign text = 'hello world' %}
+{% assign text_split = text | split: '' %}
+{% assign text_reverse = text_split | reverse %}
+{% assign letter_spaced = text_reverse | join: ' ' %}
+{% assign text_value = letter_spaced %}
+
+{{ text_value }}  {% endcomment %}
+
+
+{% comment %} {% assign string = 'hello world' %} {% endcomment %}
+
+{% comment %} {{ string | split: '' | reverse | join: '' | capitalize }}  {% endcomment %}
+
+{% comment %} {{ string | split: '' | reverse | join: '' }} {% endcomment %}
+
+
+{% comment %} {% assign numder = 12333345 %}
+{% assign numder_array = numder | split: '' %}
+{% assign array_sort = numder_array | uniq %}
+{% assign number_reverse = array_sort | reverse %}
+{% assign value = number_reverse %}
+{{ value }}  {% endcomment %}
+
+{% comment %} выход должен быть: буквы расположены в алфавитном порядке и в строке не должно содержваться дубликатов {% endcomment %}
+
+{% comment %} {% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+{% assign string_array = string | split: '' %}
+{% assign array_sort_alphabet = string_array | sort %}
+{% assign array_sort_delete = array_sort_alphabet | uniq %}
+{% assign value = array_sort_delete %}
+
+{{ value }} {% endcomment %}
+
+{% comment %} {% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+
+{{ string | split: '' | uniq | sort }} {% endcomment %}
+
+{% comment %} {% assign number = "1 | 2 | 5 | 6 | 12 | 1.3 | -1" %}
+{% assign number_arrey = number | split: '|' %}
+{% assign number_sum = number_arrey | sum %}
+{% assign number_mult = number_sum | times: "7" %}
+{% assign number_rounding = number_mult | round %}
+{% assign value = number_rounding %}
+
+{{ value }}
+{% endcomment %}
+
+
+{% comment %} {% assign number = "1 | 2 | 5 | 6 | 12 | 1.3 | -1" %}
+
+{{ number | split: '|' |sum | times: '7' | round }} {% endcomment %}
+
+{% schema %}
+    {
+        "name": "Training",
+        "settings": [
+        ],
+        "presets": [
+            {
+                "name": "Training"
+            }
+        ]
+    }
+{% endschema %}

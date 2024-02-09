@@ -1,25 +1,35 @@
-{{ 'style-tabs-bases.css' | asset_url | stylesheet_tag }}
-{% liquid
-    assign NS = 'tabs'
-%}
-
-{% capture nav %}
-    <label class="{{ NS }}-header-label" id="label1" for="tab1">Задание 1</label>
+{% assign round_name1 = 'Round 1' %}
+{% capture round1_lists %}
+    <li>Создать и использовать сниппет для условий задач</li>
+    <li>
+        Все условия задач вынести в собственные сниппеты с соответствующими названиеми.(Конвенция: 
+        <code>exercise-{number}.liquid</code>)
+    </li>
+    <li>
+        Секции переименовать.(Конвенция: 
+        <code>solution-{number}.liquid</code>)
+    </li>
+    <li>
+        Каждый снипет вызывает внутри себя универсальный сниппет 
+        <code>exercise-wrapper.liquid</code>, 
+        в который передаются пропы 
+        <code>heading</code> и 
+        <code>content</code>
+    </li>
+    <li>
+        Сниппет 
+        <code>exercise-wrapper.liquid</code> 
+        должен иметь свои стили.
+    </li>
+    <li>Возможные улучшения и оптимизация приветствуется.</li>
 {% endcapture %}
 
-{% capture content %}
-    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h4>(Capture, snippets)</h4>
-        <h5>Создать и использовать сниппет для условий задач</h5>
-        <ol>
-            <li>Все условия задач вынести в собственные сниппеты с соответствующими названиеми.(Конвенция: <code>exercise-{number}.liquid</code>)</li>
-            <li>Секции переименовать. (Конвенция: <code>solution-{number}.liquid</code>)</li>
-            <li>Каждый снипет вызывает внутри себя универсальный сниппет <code>exercise-wrapper.liquid</code>, в который передаются пропы <code>heading</code> и <code>content</code></li>
-            <li>Сниппет <code>exercise-wrapper.liquid</code> должен иметь свои стили.</li>
-            <li>Возможные улучшения и оптимизация приветствуется.</li>
-        </ol>
-    </div>
+{% capture Nav %}
+    {% render 'exercise-nav', round_name: round_name1 %}
+{% endcapture %} 
+
+{% capture Content %}
+    {% render 'exercise-content', round_name: round_name1, round_lists: round1_lists %}
 {% endcapture %}
 
-{% render 'exercise-wrapper', nav: nav, content: content %}
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}

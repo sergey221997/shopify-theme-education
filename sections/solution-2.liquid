@@ -5,8 +5,8 @@
 %}
 
 {% capture solution %}    
-    <div class="{{ NS }}-wrapper" {% if section.settings.use_red_color %}style="--color-bg: red;"{% endif %}>
-        {% render 'exercise-2' %}
+<div class="{{ NS }}-wrapper" {% if section.settings.use_red_color %}style="--color-bg: red;"{% endif %}>
+    {% render 'exercise-2' %}
         {% if section.settings.show_content %} 
             <h3 class="{{ NS }}-heading">{{ section.settings.heading }}</h3>
             <p class="{{ NS }}-text">
@@ -21,7 +21,7 @@
     </div>
 {% endcapture %}
 
-{% render 'solution-wrapper', solution: solution %}
+{% render 'section-wrapper', solution: solution %}
 
 {% schema %}
     {

@@ -1,60 +1,36 @@
-{{ 'style-tabs-bases.css' | asset_url | stylesheet_tag }}
-{% liquid
-    assign NS = 'tabs'
-%}
-
-{% capture nav %}    
-    <label class="{{ NS }}-header-label" id="label1" for="tab1">Раунд 1</label>
-    <label class="{{ NS }}-header-label" id="label2" for="tab2">Раунд 2</label>
-    <label class="{{ NS }}-header-label" id="label3" for="tab3">Раунд 3</label>
-{% endcapture %}
-  
-{% capture content %}    
-    <input class="{{ NS }}-input" id="tab1" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 1</h5>
-        <ol>
-            <li>
-                <ol>
-                    <li>Показывать "Идёт дождь" если section.settings.weather равен rain</li>
-                    <li>Показывать "Идёт снег" если section.settings.weather равен snow</li>
-                    <li>Показывать "Поднялся ветер" если section.settings.weather равен wind</li>
-                    <li>Показывать "Погода сегодня прекрасная" если section.settings.weather равен fine</li>
-                    <li>Иначе показывать "Другое"</li>
-                </ol>
-            </li>
-            <br>
-            <li>
-                <ol>
-                    <li>Сделать текст "Идёт дождь" синим, а фон белым</li>
-                    <li>Сделать текст "Идёт снег" белым, а фон чёрным</li>
-                    <li>Сделать текст "Поднялся ветер" серым, а фон синим</li>
-                    <li>Сделать текст "Погода сегодня прекрасная" чёрным, а фон зёленым</li>
-                    <li>Сделать текст "Другое" жирным, красным</li>
-                </ol>
-            </li>
-        </ol>
-    </div>
-
-    <input class="{{ NS }}-input" id="tab2" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 2</h5>
-        <ol>
-            <ol>
-                <li>Провести рефакторинг проверки условий с использованием case</li>
-                <li>Использовать css переменные для стилизации</li>
-                <li>DRY (Don't repeat yourself)</li>
-            </ol>
-        </ol>
-    </div>
-
-    <input class="{{ NS }}-input" id="tab3" type="checkbox" name="tabs">
-    <div class="{{ NS }}-content">
-        <h5>Раунд 3</h5>
-        <ol>
-            <li>Избавиться от повторений тега p (в css нет liquid)</li>
-        </ol>
-    </div>
+{% assign round_name1 = 'Round 1' %}
+{% capture round1_lists %}
+    <li>Показывать "Идёт дождь" если section.settings.weather равен rain</li>
+    <li>Показывать "Идёт снег" если section.settings.weather равен snow</li>
+    <li>Показывать "Поднялся ветер" если section.settings.weather равен wind</li>
+    <li>Показывать "Погода сегодня прекрасная" если section.settings.weather равен fine</li>
+    <li>Иначе показывать "Другое"</li>
 {% endcapture %}
 
-{% render 'exercise-wrapper', nav: nav, content: content %}
+{% assign round_name2 = 'Round 2' %}
+{% capture round2_lists %}
+    <li>Сделать текст "Идёт дождь" синим, а фон белым</li>
+    <li>Сделать текст "Идёт снег" белым, а фон чёрным</li>
+    <li>Сделать текст "Поднялся ветер" серым, а фон синим</li>
+    <li>Сделать текст "Погода сегодня прекрасная" чёрным, а фон зёленым</li>
+    <li>Сделать текст "Другое" жирным, красным</li>
+{% endcapture %}
+
+{% assign round_name3 = 'Round 3' %}
+{% capture round3_lists %}
+    <li>Избавиться от повторений тега p (в css нет liquid)</li>
+{% endcapture %}
+
+{% capture Nav %}
+    {% render 'exercise-nav', round_name: round_name1 %}
+    {% render 'exercise-nav', round_name: round_name2 %}
+    {% render 'exercise-nav', round_name: round_name3 %}
+{% endcapture %} 
+
+{% capture Content %}
+    {% render 'exercise-content', round_name: round_name1, round_lists: round1_lists %}
+    {% render 'exercise-content', round_name: round_name2, round_lists: round2_lists %}
+    {% render 'exercise-content', round_name: round_name3, round_lists: round3_lists %}
+{% endcapture %}
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}

@@ -1,0 +1,9 @@
+{{ 'section-wrapper.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+    assign NS = 'section-wrapper'
+%}
+
+<div class="{{ NS }}">
+    {{ solution }}
+</div>

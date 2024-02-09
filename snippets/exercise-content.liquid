@@ -1,0 +1,12 @@
+{{ 'style-tabs-bases.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+    assign NS = 'exercise'
+%}
+
+<input class="{{ NS }}-input" id="{{ round_name | append: section.id }}" type="checkbox">
+<div class="{{ NS }}-content-text">
+    <ol>
+        {{ round_lists }}
+    </ol>
+</div> 

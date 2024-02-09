@@ -1,14 +1,5 @@
 {{ 'exercises-1.css' | asset_url | stylesheet_tag }}
 
-{% assign style_url = 'exercises-1.css' | asset_url %}
-
-<link rel="stylesheet" href="{{ style_url }}">
-
-{% assign style_tag = style_url | stylesheet_tag %}
-{{ style_tag }}
-
-<link rel="stylesheet" href="exercises-1.css">
-
 {% render 'exercise-1' %}
 {% liquid
     assign NS = 'exercise-one'    
@@ -37,7 +28,7 @@
     {% endif %}
 {% endcapture %}
 
-{% render 'solution-wrapper', solution: solution %}
+{% render 'section-wrapper', solution: solution %}
     
 {% schema %}
     {
