@@ -13,35 +13,30 @@
 {% assign num_list1_array = num_list1 | split: ',' %}
 {% assign num_list2_array = num_list2 | split: ',' %}
 
+{% assign result_string = '' %}
+
 {% for item1 in num_list1_array %}
     {% assign one = item1 %}
-    {% assign index = forloop.index0 %}
-    {% assign two = num_list2_array[index] %}
-    {{ one | plus: two }}
+    {% assign two = num_list2_array[forloop.index0] %}
+    {% assign sum = one | plus: two %}
+    {% assign result_string = result_string | append: sum %}
+    {% if forloop.last == false %}
+        {% assign result_string = result_string | append: ',' %}
+    {% endif %}
 {% endfor %}
 
+{{ result_string }}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% comment %} {% for item in items %}
+    {% if forloop.index0 | modulo: 4 == 0 %}
+      {{ item }}
+    {% endif %}
+{% endfor %} {% endcomment %}
+  
 
 
 

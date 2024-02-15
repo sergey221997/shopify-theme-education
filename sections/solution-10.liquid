@@ -1,0 +1,118 @@
+{% render 'exercise-10' %} 
+
+{% comment %} 
+    каждый четвёртый символ перевести в верхний регистр,
+    каждый пятый заменить на _, вывести результат в виде строки 
+{% endcomment %}
+
+{% comment %} {% assign string = 'Lorem ipsum dolor sit' %}
+{% assign string_array = string | split: '' %}
+
+{% for item in string_array %}
+    {% assign item_index = forloop.index0 %}
+
+
+{% endfor %}   {% endcomment %}
+
+ 
+{% comment %} {% assign string = 'Lorem ipsum dolor sit' %}
+{% assign string_array = string | split: '' %}
+
+{% for item in string_array %}
+    {% assign item = forloop.index0 %}
+    {% if forloop.index == 3 %}
+        {% assign result = item | upcase %}
+    {% endif %}
+{% endfor %}
+{{ result }}  {% endcomment %}
+
+
+{% comment %} {% assign my_array = "lorem ipsum dolor sit" | split: "" %}
+{% assign modified_array = "" %}
+
+{% for item in my_array %}
+    {% if forloop.index0 == 4  %}
+      {{ item | upcase }} 
+    {% else %}
+      {{ item }}
+    {% endif %}
+{% endfor %}
+{{ modified_array }}  {% endcomment %}
+
+
+{% comment %} {% assign myArray = "lorem" | split: "" %}
+{% assign result = '' %}
+
+{% for value in myArray %}
+    {% assign remainder = forloop.index | modulo: 4 %}
+    {% if remainder == 0 %}
+        {{- value | capitalize -}}
+    {% else %}
+        {{- value -}}
+    {% endif %}
+{% endfor %} 
+
+{% endcomment %}
+
+{% comment %} {% assign my_array = "lorem" | split: "" %}
+{% assign result = '' %}
+
+{% for value in my_array %}
+    {% assign remainder = forloop.index | modulo: 4 %}
+    {% if remainder == 0 %}
+        {% assign modified_value = value | capitalize %}
+    {% else %}
+        {% assign modified_value = value %}
+    {% endif %}
+    
+    {% assign result = result | append: modified_value %}
+{% endfor %}
+{{ result }} {% endcomment %}
+
+
+{% assign my_array = section.settings.heading | split: "" %}
+{% assign result = '' %}
+{% assign every_fourth = 4 %}
+{% assign every_fifth = 5 %}
+
+{% for value in my_array %}
+    {% assign remainder4 = forloop.index | modulo: every_fourth %}
+    {% assign remainder5 = forloop.index | modulo: every_fifth %}
+    
+    {% if remainder4 == 0 %}
+        {% assign modified_value = value | upcase %}
+    {% else %}
+        {% assign modified_value = value %}
+    {% endif %}
+    
+    {% if remainder5 == 0 %}
+        {% assign modified_value = '-' %}
+    {% endif %}
+    
+    {% assign result = result | append: modified_value %}
+{% endfor %}
+
+{{ result }}
+
+
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}
+
+{% schema %}
+    {
+        "name": "Exercise 10",
+        "settings": [
+            {
+                "id": "heading",
+                "default": "Lorem ipsum",
+                "type": "text",
+                "label": "Heading"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Exercise 10"
+            }
+        ]
+    }
+{% endschema %}
