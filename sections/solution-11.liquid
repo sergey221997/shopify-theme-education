@@ -1,12 +1,18 @@
+{{ 'exercise-11.css' | asset_url | stylesheet_tag }}
+
 {% render 'exercise-11' %} 
 
-
-
-
-
-
-
-
+<table class="table">
+    {% for multiplier in (1..10) %}
+      <tr class="table-row">
+        {% for factor in (1..10) %} 
+            <td class="table-data">
+                {{ multiplier | times: factor }}
+            </td>
+        {% endfor %} 
+      </tr>
+    {% endfor %}
+</table>
 
 
 
