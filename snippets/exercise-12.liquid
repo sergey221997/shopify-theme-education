@@ -1,0 +1,27 @@
+{% assign round_name1 = 'Round 1' %}
+{% capture round1_lists %}
+    <li>
+        Исключить возможность добавить больше одной секции типа Exercise
+    </li>
+    <li>
+        Исключить возможность добавить больше одного блока (раунда) 
+        в секциях типа Exercise
+    </li>
+    <li>
+        Секции типа Exercise должны быть доступны только на домашней странице
+    </li>
+    <li>
+        Установить блоки по умолчанию для секций типа Exercise 
+        (при добавлении секции на страницу, в ней должен быть преднастроенный блок)
+    </li>
+{% endcapture %}
+
+{% capture Nav %}
+    {% render 'exercise-nav', round_name: round_name1 %}
+{% endcapture %} 
+
+{% capture Content %}
+    {% render 'exercise-content', round_name: round_name1, round_lists: round1_lists %}
+{% endcapture %}
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}
