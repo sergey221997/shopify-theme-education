@@ -19,7 +19,7 @@
     border: 1px solid #B1B1B1;
 }
 
-.table-data:first-child, .table-row:first-child{
+.mod {
     background-color: #A1C746;
     font-weight: bold;
     color: #fff;
