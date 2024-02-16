@@ -7,31 +7,12 @@
     {% assign array_sort_delete = array_sort_alphabet | uniq %}
     {% assign value = array_sort_delete %}
 
-    {{ value }}
-     
+    {{ value }}     
 {% endcomment %}
 
- {% comment %} {% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
+{% assign string = 'llkfjglkdjfglkjdsrptispeofdklfkhgnposidurgpwsdojgflkjndfkhjdorifthkpdsofkmglkndmflgkkjhjoedrijptglm' %}
 
-{{ string | split: '' | uniq | sort | join: '' }}  {% endcomment %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{{ string | split: '' | uniq | sort | join: '' }}  
 
 
 {% render 'section-wrapper', solution: solution %}
@@ -39,6 +20,8 @@
 {% schema %}
     {
         "name": "Exercise 7",
+        "limit": 1,
+        
         "presets": [
             {
                 "name": "Exercise 7"
