@@ -2,6 +2,9 @@
     assign NS = 'exercise-zero'
 %}
 
+{% if template.name == 'index' %}
+    
+
 {% render 'exercise-0' %}
 {% capture solution %}
     <ol class="{{ NS }}-content">
@@ -41,7 +44,7 @@
 {% endcapture %}
 
 {% render 'section-wrapper', solution: solution %}
-
+{% endif %}
 {% schema %}
     {
         "name": "Exercise 0",
@@ -86,12 +89,16 @@
                 "max": 9,
                 "step": 1,
                 "default": 0
-            }
+            }          
         ],
+        
         "presets": [
             {
                 "name": "Exercise 0"
             }
-        ]
+        ],
+        "enabled_on": {  
+        "templates": ["index"]
+       }
     }
 {% endschema %}

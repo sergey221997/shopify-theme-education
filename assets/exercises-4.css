@@ -2,11 +2,13 @@
     font-size: var(--font-size);
     font-weight: var(--font-weight, normal);
     font-style: var(--font-style, normal);
-    background-color: #008000;
+    background-color: #14b214ff;
     width: var(--width);
+    padding-bottom: 1rem;
 } 
 
 .exercise-four-inner {
+    padding-left: 1rem;
     text-align: var(--align-content);
 } 
 

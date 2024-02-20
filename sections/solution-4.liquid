@@ -155,8 +155,20 @@ assign NS = 'exercise-four'
         ],
         "presets": [
             {
-                "name": "Exercise 4"
+                "name": "Exercise 4",
+                "blocks": [
+                    {
+                        "type": "text"
+                    },
+                    {
+                        "type": "email"
+                    }
+                ]
+
             }
-        ]
+        ],
+        "enabled_on": {  
+        "templates": ["index"]
+       }
     }
 {% endschema %}

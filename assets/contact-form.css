@@ -1,7 +1,41 @@
 .contact-form {
-    width: 200px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: #FF0000;
+    background-color: #fff;
+    width: 300px;
+    border-radius: 15px;
+    padding: 1rem;
+    font-family: sans-serif;
+}
+
+.contact-form-label {
+    color: rgb(62, 59, 59);
+}
+
+.contact-form-input {
+    resize: none;
+    width: auto;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px  rgba(221, 221, 221, 1);
+    background-color: #d5dde9;
+}
+
+.contact-form-button {
+    width: auto;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    background-color: #FF9D71;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    font-weight: bold;
+    color: #262931;
+}
+
+.contact-form-button:hover {
+    background-color: #f67235;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }
