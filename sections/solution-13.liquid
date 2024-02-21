@@ -1,13 +1,17 @@
 {% render 'exercise-13' %} 
 
-{% assign words = 'apple, banana, orange, cherry, lemon, blackberry, zalupa'  %}
-
-
-
-
-
-
 {% render 'exercise-wrapper', Nav: Nav, Content: Content %}
+{% assign words = 'apple, banana, orange, cherry, lemon, blackberry, zalupa' |  split: ", " %}
+
+<ul>
+    {% for word in words %}
+            {% assign test = forloop.index |  modulo: 3 %}
+
+            <li {% if test == 0 %}style="font-weight: bold;"{% endif %}>
+                {{ word }}
+            </li>          
+    {% endfor %} 
+</ul>
 
 {% schema %}
     {

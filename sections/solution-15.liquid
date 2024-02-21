@@ -1,0 +1,22 @@
+{% render 'exercise-15' %}
+
+{%- assign str = 'shjdfjfnskdjfwoseirughjsskdnfdfgsdfjdfhgktherdsfhfgjdfghjkghkhjklkjpiugikjhg' -%}
+
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}
+
+{% schema %}
+    {
+        "name": "Exercise 14",
+        "limit": 1,
+        
+        "presets": [
+            {
+                "name": "Exercise 15"
+            }
+        ],
+        "enabled_on": {  
+        "templates": ["index"]
+       }
+    }
+{% endschema %}

@@ -162,6 +162,35 @@
 
 {{ number | split: '|' |sum | times: '7' | round }} {% endcomment %}
 
+
+
+
+
+
+
+
+{% comment %}  
+
+{% for word in words %}: Этот тег начинает цикл, в котором переменная word принимает каждое значение из списка words.
+
+    {% assign test = forloop.index | modulo: 3 %}: Этот тег создает переменную test, которая равна остатку от деления текущего индекса цикла (forloop.index) на 3.
+    
+    {% if test == 0 %}: Этот тег проверяет, равен ли остаток от деления 0. Если да, то это означает, что текущий индекс делится на 3 без остатка.  
+{% endcomment %}
+    
+    
+    
+{% comment %} {%- assign str = 'shjdfjfnskdjfwoseirughjsskdnfdfgsdfjdfhgktherdsfhfgjdfghjkghkhjklkjpiugikjhg' -%}
+{{ char }} - {{ count }}   {% endcomment %}
+    
+
+
+
+
+
+
+
+
 {% schema %}
     {
         "name": "Training",

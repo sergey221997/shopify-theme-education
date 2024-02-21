@@ -1,0 +1,16 @@
+{% assign round_name1 = 'Round 1' %}
+{% capture round1_lists %}
+    <li>
+       Посчитать колличество каждой буквы
+    </li>
+{% endcapture %}
+
+{% capture Nav %}
+    {% render 'exercise-nav', round_name: round_name1 %}
+{% endcapture %} 
+
+{% capture Content %}
+    {% render 'exercise-content', round_name: round_name1, round_lists: round1_lists %}
+{% endcapture %}
+
+{% render 'exercise-wrapper', Nav: Nav, Content: Content %}
