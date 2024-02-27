@@ -1,0 +1,39 @@
+
+{% liquid
+    assign d = section.settings.distance | times: 1.0
+    assign s = section.settings.speed | times: 1.0
+    assign t = section.settings.time | times: 1.0
+%}
+
+<h3>Расстояние - {{ d }} метров</h3>
+<h3>Скорость - {{ s }} метров в секунду</h3>
+<h3>Время - {{ t }} секунд</h3>
+
+{% schema %}
+    {
+        "name": "Math exercise 1",
+        "settings": [
+            {
+                "type": "number",
+                "id": "distance",
+                "label": "Расстояние в метрах"
+            },
+            {
+                "type": "number",
+                "id": "speed",
+                "label": "Скорость в м/с"
+            },
+            {
+                "type": "number",
+                "id": "time",
+                "label": "Время в секундах"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Math exercise 1"
+            }
+        ]
+    }
+{% endschema %}
+

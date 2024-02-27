@@ -185,6 +185,35 @@
     
 
 
+{% comment %}  
+
+{% assign input_string = section.settings.string %} 
+Здесь создается переменная input_string, которая принимает значение из параметра string в разделе или секции. 
+Это предполагает, что в вашем контенте есть раздел (или секция), который содержит параметр string.
+
+{% assign input_string_array = input_string | split: "" %}
+Создается массив input_string_array, разделяя строку input_string на отдельные символы.
+
+{% assign reversed_word = "" %} 
+Создается пустая строковая переменная reversed_word, 
+которая будет использоваться для хранения обратной версии введенной строки.
+
+{% for char in input_string_array reversed %} 
+Здесь начинается цикл, который перебирает символы в массиве 
+input_string_array в обратном порядке (при помощи ключевого слова reversed).
+
+{% assign reversed_word = reversed_word | append: char %}
+ В каждой итерации цикла символ char добавляется к переменной reversed_word, создавая обратную версию строки.
+
+{% if input_string == reversed_word %} 
+После завершения цикла происходит сравнение исходной строки input_string с обратной строкой reversed_word.
+
+{{ input_string }} - это полиндром и {{ input_string }} - это не полиндром: 
+В зависимости от результата сравнения выводится соответствующее сообщение о том,
+является ли введенная строка палиндромом или нет.
+
+{% endcomment %}
+
 
 
 

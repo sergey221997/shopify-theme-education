@@ -1,5 +1,87 @@
 {% render 'exercise-14' %}
 
+{% comment %} {% assign input_string = section.settings.string %}
+{% assign reversed_string = input_string | split: "" | reverse | join: "" %}
+
+{% if input_string == reversed_string %}
+  <p>{{ input_string }}: является палиндромом.</p>
+{% else %}
+  <p>{{ input_string }}: не является палиндромом.</p>
+{% endif %}  {% endcomment %}
+
+{% comment %} {% assign input_string = section.settings.string %}
+{% assign input_string_array = input_string | split: "" %}
+{% assign reversed_word = "" %}
+
+{% for char in input_string_array reversed %}
+    {% assign reversed_word = reversed_word | append: char %}
+{% endfor %}
+
+{% if input_string == reversed_word %}
+    {{ input_string }} - это полиндром
+{% else %}
+    {{ input_string }} - это не полиндром
+{% endif %} {% endcomment %}
+
+{% comment %} {% assign nums = 1234564654 %}
+{% assign nums_arr = nums |  split: '' %}
+<ul>
+{% for num in nums_arr %}
+    
+        <li>{{ forloop.index }}</li>
+    
+    
+{% endfor %}
+</ul> {% endcomment %}
+
+
+{% comment %} <h1>{{ nums_arr[2] }}</h1> {% endcomment %}
+
+{% comment %} {% assign string = 'lik' | split: '' %}
+
+{% assign string_size = string | size %}
+
+{% assign last_index = string_size | minus: 1 %}
+
+{% assign test1 = string[0] %}
+
+{% assign test2 = last_index[] %}
+
+
+{{ test1 }}
+{{ test2 }}  {% endcomment %}
+{% comment %}
+    l o o l
+    0 1 2 3 
+{% endcomment %}
+
+
+
+
+{% comment %} {% for collection in collections %}
+    <h2>{{ collection.title }}</h2>
+    {% unless collection.discription == blank %}
+        <p>{{ collection.discription }}</p>
+    {% endunless %}
+
+    {% for product in collection.products %}
+        <img src="{{ product | image_url }}" alt="">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.price | money }}</p>
+        {% else %}
+            <p>thre is no products in {{ collection.title }}</p>
+    {% endfor %}
+{% endfor %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9,6 +91,15 @@
     {
         "name": "Exercise 14",
         "limit": 1,
+
+        "settings": [
+            {
+                "type": "text",
+                "id": "string",
+                "label": "Test polindrome",
+                "default": "lol"
+            }
+        ],
         
         "presets": [
             {
