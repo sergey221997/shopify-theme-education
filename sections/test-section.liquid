@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="{{ 'test.css' | asset_url }}">
+
+
+{% assign setting_width = section.settings.number %}
+
+<div class="test-container" style=" --full-width: calc({{section.settings.number}}px + var(--default-width));">
+
+</div>
+
+
+
+{% schema %}
+    {
+        "name": "Test section",
+        "limit": 1,
+        "settings": [
+            {
+                "type": "range",
+                "id": "number",
+                "label": "Number",
+                "min": 0,
+                "max": 100,
+                "default": 10,
+                "step": 1
+            }
+        ],
+        "presets": [
+            {
+                "name": "Test section"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,6 @@
+.test-container {
+    --default-width: 500px;
+    width: var(--full-width); 
+    height: 500px; 
+    background: green;
+}

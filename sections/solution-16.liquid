@@ -1,9 +1,16 @@
-
 {% liquid
     assign d = section.settings.distance | times: 1.0
     assign s = section.settings.speed | times: 1.0
     assign t = section.settings.time | times: 1.0
 %}
+
+{% if d != nil and s != nil and d != 0 and s != 0 %}
+    {% assign t = d | divided_by: s %}
+{% elsif d != nil and t != nil and d != 0 and t != 0 %}
+    {% assign s = d | divided_by: t %}  
+{% elsif s != nil and t != nil and s != 0 and t != 0 %}
+    {% assign d = s | times: t %}     
+{% endif %} 
 
 <h3>Расстояние - {{ d }} метров</h3>
 <h3>Скорость - {{ s }} метров в секунду</h3>
@@ -35,5 +42,5 @@
             }
         ]
     }
-{% endschema %}
 
+{% endschema %}
