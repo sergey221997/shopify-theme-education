@@ -1,0 +1,16 @@
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    color: var(--color-button-text);
+}

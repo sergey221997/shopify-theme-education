@@ -1,0 +1,73 @@
+{{ 'color-scheme-test.css' | asset_url | stylesheet_tag }}
+{{ 'core.css' | asset_url | stylesheet_tag }}
+{{ 'base.css' | asset_url | stylesheet_tag }}
+
+
+<div class="banner color-{{ section.settings.color_scheme}}">
+    <h1 class="banner-title">{{ section.settings.heading_text }}</h1>
+    <h3 class="banner-subtitle">{{ section.settings.subheading_text }}</h3>
+    <div class="banner-buttons" {% if section.settings.button_position == "column" %}style="flex-direction: column;"{% endif %}>
+        <button class="custom button-1">button 1</button>
+        <button class="custom button-2 secondary">button 2</button>
+    </div>
+    <a class="link" href="#">link test</a>
+</div>
+{{ scheme.settings.text }}
+{% schema %}
+{
+    "name": "Color scheme",
+    "presets": [
+        {
+            "name": "Color scheme"
+        }
+    ],
+    "settings": [
+        {
+            "label": "Color",
+            "type": "color_scheme",
+            "default": "scheme-5",
+            "id": "color_scheme"
+        },
+        {
+            "type": "color",
+            "id": "color",
+            "label": "Color"
+        },
+        {
+            "label": "Heading text",
+            "type": "text",
+            "id": "heading_text",
+            "placeholder": "heading text",
+            "default": "Hello world"
+        },
+
+        {
+            "label": "Subheading text",
+            "type": "text",
+            "id": "subheading_text",
+            "placeholder": "subheading text",
+            "default": "Lorem ipsum dolor sit amet."
+        },
+
+        {
+            "type": "select",
+            "label": "Buttons position",
+            "id": "button_position",
+            "default": "row",
+
+            "options": [
+                {
+                    "label": "line",
+                    "value": "row"
+                },
+                {
+                    "label": "column",
+                    "value": "column"
+                }
+            ]
+        }
+        ]
+}
+{% endschema %}
+
+

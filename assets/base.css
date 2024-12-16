@@ -1,0 +1,17 @@
+
+button {
+    /* background-color: rgb(var(--color-button)); */
+    color: rgb(var(--color-button-text));
+    background-color:  rgb(var(--color-button));
+}
+
+.secondary {
+    background-color: rgb(var(--color-secondary-button-background));
+    color: rgb(var(--color-secondary-button-text));
+}
+
+a {
+    color: rgb(var(--color-links));
+    font-size: 2rem;
+    font-weight: bold;
+}
