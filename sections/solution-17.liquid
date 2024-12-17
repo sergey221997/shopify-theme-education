@@ -1,0 +1,160 @@
+{{ 'exercises-18.css' | asset_url | stylesheet_tag }}
+{% comment %} 
+    {% if section.settings.fruits == 'apple' or section.settings.fruits == 'pear' %}
+        {% assign text_color = 'red' %}
+    {% else %}
+        {% assign text_color = 'green' %}       
+    {% endif %}
+
+    <h1 style="--color-text: {{ text_color }};">{{ section.settings.fruits }}</h1> {% endcomment %}
+
+    {% comment %} {% assign array = 10 %}
+
+    {% if array == 1 %}
+        {% if array > 0 %}
+            1
+        {% endif %}
+    {% elsif array == 2 %}
+        2
+    {% elsif array == 3 %}
+        3
+    {% elsif array > 0 %}
+        {{ array }}
+    {% else %}
+        0    
+    {% endif %} {% endcomment %}
+
+    {% assign first = false %}
+    {% assign second = false %}
+
+    {% if first or second %}
+        I'm 'if' branch<br>
+        {% if first %}
+            I'm 'nested if' branch<br>
+        {% endif %}
+    {% else %}
+        I'm 'else' branch
+    {% endif %}
+
+
+{% comment %}
+    {% for block in section.blocks %}
+        {{ block.settings.message }}
+    {% endfor %}
+{% endcomment %}
+
+
+{% comment %}
+    {% assign items = '1,2,3,4,5' | split: ',' %}
+
+    {% for item in items %}
+        {% if item == '5' %}
+            {% break %}
+        {% endif %}
+        {{ item }}
+    {% endfor %}
+{% endcomment %}
+
+
+
+    {% comment %} {% assign num = 10 %}
+    {% for number in (1..5) %}
+        {% if number == 4 %}
+            {% assign num = 20 %}
+            {% break %}
+        {% endif %}
+        {{ num }}
+    {% endfor %} {% endcomment %}
+
+{% comment %}
+    {% assign foo = 'one,two,three,four,five' | split: ','%}
+
+    {% for item in foo limit:2 %}
+        {{ item }}
+    {% endfor %}
+{% endcomment %}
+
+
+{% comment %}
+    {% assign items = '1,2,3' | split: ','  %}
+
+    {% for item in items reversed %}
+        {{ item }}
+    {% endfor %}
+{% endcomment %}
+
+
+{% comment %}
+    {% assign items = '1,2,3,4' | split: ',' %}
+
+    {% for item in items limit:2 %}
+        {{ item }}
+    {% endfor %}
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "if else for",
+    "settings": [
+        {
+            "type": "select",
+            "id": "fruits",
+            "label": "Select",
+            "options": [
+                {
+                    "label": "apple",
+                    "value": "apple"
+                },
+                {
+                    "label": "orange",
+                    "value": "orange"
+                },
+                {
+                    "label": "pear",
+                    "value": "pear"
+                }
+            ],
+            "default": "apple"
+        }
+        ],
+        "blocks": [
+            {
+                "type": "text",
+                "name": "block",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "message",
+                        "label": "Label",
+                        "default": "Message"  
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "if else for"
+            }        
+        ]
+}
+{% endschema %}
